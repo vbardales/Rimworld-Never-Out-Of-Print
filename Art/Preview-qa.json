@@ -1,0 +1,55 @@
+{
+  "version": "1.6",
+  "paletteSource": "Art/preview-palette.json",
+  "iconBadgeCorner": "bottom-left",
+  "elements": {
+    "h1": {
+      "bounds": {
+        "x": 50,
+        "y": 54,
+        "width": 430,
+        "height": 50.59375
+      },
+      "fonts": [
+        {
+          "familyName": "Segoe UI Semibold",
+          "postScriptName": "SegoeUI-Semibold",
+          "isCustomFont": false,
+          "glyphCount": 18
+        }
+      ]
+    },
+    "p": {
+      "bounds": {
+        "x": 50,
+        "y": 143.59375,
+        "width": 430,
+        "height": 60.875
+      },
+      "fonts": [
+        {
+          "familyName": "Segoe UI",
+          "postScriptName": "SegoeUI",
+          "isCustomFont": false,
+          "glyphCount": 53
+        }
+      ]
+    },
+    ".version": {
+      "bounds": {
+        "x": 846.7371826171875,
+        "y": 4.737185001373291,
+        "width": 44.525634765625,
+        "height": 44.52562856674194
+      },
+      "fonts": [
+        {
+          "familyName": "Segoe UI",
+          "postScriptName": "SegoeUI-Bold",
+          "isCustomFont": false,
+          "glyphCount": 3
+        }
+      ]
+    }
+  }
+}
