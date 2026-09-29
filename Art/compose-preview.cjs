@@ -36,8 +36,9 @@ const contrast = (a, b) => (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
   await page.screenshot({ path: path.join(root, 'Mod/About/Preview.png') });
   // ModIcon stamp, cutout from its near-black background and composited into a free
   // corner (STYLE_RIMWORLD.md, "Le ModIcon détouré sur la vitrine", 2026-09-29):
-  // left corner +15deg, right corner -15deg. Text sits top-left here, so the icon
-  // goes bottom-right at -15deg.
+  // left corner +15deg, right corner -15deg. Text sits top-left here; the owner asked
+  // for the stamp bottom-left, same side as the text (the right side already carries
+  // the illustration's subject), at +15deg, edge touching edge (margin 0).
   // Flood-fill from the border, not a global colour-distance pass: the icon's own
   // dark facial linework (eye, smile) can sit at the same near-black distance as the
   // background and must stay opaque; only background actually connected to the edge
@@ -70,11 +71,11 @@ const contrast = (a, b) => (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
   const cut = Buffer.from(iconData);
   for (let p = 0; p < iw * ih; p++) cut[p * 4 + 3] = Math.min(cut[p * 4 + 3], alphaOverride[p]);
   const cutoutPng = await sharp(cut, { raw: { width: iw, height: ih, channels: 4 } }).png().toBuffer();
-  const stampSize = 150, stampMargin = 10, stampRotation = -15;
+  const stampSize = 150, stampMargin = 0, stampRotation = 15;
   const stamp = await sharp(cutoutPng).resize(stampSize, stampSize).rotate(stampRotation, { background: { r: 0, g: 0, b: 0, alpha: 0 } }).toBuffer();
   const stampMeta = await sharp(stamp).metadata();
   const withStamp = await sharp(fs.readFileSync(path.join(root, 'Mod/About/Preview.png')))
-    .composite([{ input: stamp, left: 896 - stampMeta.width - stampMargin, top: 504 - stampMeta.height - stampMargin }])
+    .composite([{ input: stamp, left: -stampMargin, top: 504 - stampMeta.height + stampMargin }])
     .png().toBuffer();
   fs.writeFileSync(path.join(root, 'Mod/About/Preview.png'), withStamp);
   await page.addStyleTag({ content: '.copy{visibility:hidden}.version{visibility:hidden}' });
