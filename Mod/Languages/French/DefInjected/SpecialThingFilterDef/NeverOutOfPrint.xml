@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <NeverOutOfPrint_AllowCopies.label>autoriser les livres copiés</NeverOutOfPrint_AllowCopies.label>
+  <NeverOutOfPrint_AllowCopies.description>Autoriser les livres imprimés sur une presse.</NeverOutOfPrint_AllowCopies.description>
+
+  <NeverOutOfPrint_AllowOriginals.label>autoriser les livres originaux</NeverOutOfPrint_AllowOriginals.label>
+  <NeverOutOfPrint_AllowOriginals.description>Autoriser les livres qui n'ont pas été imprimés sur une presse.</NeverOutOfPrint_AllowOriginals.description>
+
+</LanguageData>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LoadFolders>
+  <!-- The Ideology folder holds the French translations of the defs that only exist when
+       Ideology is loaded. Defs themselves can say MayRequire and be skipped; a DefInjected key
+       cannot, and RimWorld reports every key whose def is absent as a dead key. Gating the
+       folder is the only way to say the same thing about a translation.
+
+       "/" has to be listed by hand: as soon as a LoadFolders entry matches, the root is no
+       longer added on its own. -->
+  <v1.6>
+    <li>/</li>
+    <li IfModActive="Ludeon.RimWorld.Ideology">Ideology</li>
+  </v1.6>
+</LoadFolders>

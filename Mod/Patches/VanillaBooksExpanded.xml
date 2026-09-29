@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Vanilla Books Expanded already has a research project labelled "printing", and two
+       projects with the same label in one tree is a worse outcome than either alone. When it is
+       loaded the presses hang off its project and this mod's own is removed. Order matters: the
+       prerequisites are rewritten before the def they no longer name is deleted. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ResearchProjectDef[defName="VBE_Printing"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="NeverOutOfPrint_Manual"]/researchPrerequisites</xpath>
+          <value>
+            <researchPrerequisites>
+              <li>VBE_Printing</li>
+            </researchPrerequisites>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="NeverOutOfPrint_Electric"]/researchPrerequisites</xpath>
+          <value>
+            <researchPrerequisites>
+              <li>VBE_Printing</li>
+              <li>Electricity</li>
+            </researchPrerequisites>
+          </value>
+        </li>
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ResearchProjectDef[defName="NeverOutOfPrint_Printing"]</xpath>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+  <!-- VBE's writers' and typewriter tables can write books; if they are present they can write
+       an ideoligion book too. The recipe is generated from the ThingDef by recipeMaker, so this
+       only has to say where it may be made and what it costs.
+
+       The outer test is on the book itself: without Ideology that def does not exist at all
+       (MayRequire), and an add with nothing to attach to is reported as a failed patch. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="NeverOutOfPrint_IdeoligionBook"]</xpath>
+    <match Class="PatchOperationConditional">
+      <xpath>Defs/ThingDef[defName="VBE_WritersTable"]</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="NeverOutOfPrint_IdeoligionBook"]</xpath>
+        <value>
+          <costList>
+            <Cloth>100</Cloth>
+          </costList>
+          <recipeMaker>
+            <workSpeedStat>VBE_WritingSpeed</workSpeedStat>
+            <workSkill>Social</workSkill>
+            <workAmount>34000</workAmount>
+            <unfinishedThingDef>VBE_UnfinishedBook</unfinishedThingDef>
+            <effectWorking>Sculpt</effectWorking>
+            <soundWorking>Recipe_Write</soundWorking>
+            <recipeUsers>
+              <li>VBE_WritersTable</li>
+              <li>VBE_TypewritersTable</li>
+            </recipeUsers>
+            <researchPrerequisites>
+              <li>VBE_Writing</li>
+            </researchPrerequisites>
+          </recipeMaker>
+        </value>
+      </match>
+    </match>
+  </Operation>
+
+</Patch>

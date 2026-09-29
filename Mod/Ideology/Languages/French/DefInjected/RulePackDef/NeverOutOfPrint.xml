@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Le nom d'une idéoligion et celui de ses membres sont engendrés par le jeu : on n'en connaît
+       ni le genre ni l'initiale. Les tournures retenues ici l'évitent - deux-points plutôt que
+       « de », pluriel avec « les »/« des » plutôt que singulier avec un article - parce que le
+       résolveur de grammaire ne sait ni accorder ni élider. C'est la même parade que la traduction
+       officielle applique à Namer_Novel, par un autre chemin : elle énumère les articles, on s'en
+       passe.
+
+       [tract] et [tract_synonym] ne contiennent que des noms masculins à initiale consonantique,
+       puisqu'ils suivent « Le », « Un » et « Ce » ; et [TerrainFeature] est absent, parce que la
+       liste française donne des noms nus (« plateau », « arbre ») qu'aucune préposition ne peut
+       précéder sans risque. -->
+
+  <NeverOutOfPrint_Namer_IdeoligionBook.rulePack.rulesStrings>
+    <li>title->Sur [IDEO_name]</li>
+    <li>title->[tract] : [IDEO_name]</li>
+    <li>title->Le [tract] des [IDEO_memberNamePlural]</li>
+    <li>title->La voie des [IDEO_memberNamePlural]</li>
+    <li>title->Pourquoi nous sommes [IDEO_memberNamePlural]</li>
+    <li>title->Ce que savent les [IDEO_memberNamePlural]</li>
+    <li>title->Réponse d'un [IDEO_memberName]</li>
+    <li>title->Lettres à un jeune [IDEO_memberName]</li>
+    <li>title->Premiers principes : [IDEO_name]</li>
+    <li>title->La vérité [AdjectiveAny_Feminine] : [IDEO_name]</li>
+    <li>title->Contre les ennemis des [IDEO_memberNamePlural]</li>
+    <li>title->Les nôtres, les leurs</li>
+    <li>title->[ANYPAWN_nameIndef] écrit sur [IDEO_name]</li>
+
+    <li>tract->Catéchisme</li>
+    <li>tract->Recueil</li>
+    <li>tract->Manifeste</li>
+    <li>tract->Testament</li>
+    <li>tract->Plaidoyer</li>
+    <li>tract->Dialogue</li>
+    <li>tract->Sermon</li>
+    <li>tract->Manuel</li>
+    <li>tract->Traité</li>
+    <li>tract->Bréviaire</li>
+  </NeverOutOfPrint_Namer_IdeoligionBook.rulePack.rulesStrings>
+
+  <NeverOutOfPrint_Description_IdeoligionBook.rulePack.rulesStrings>
+    <li>desc->[opening]. [argument]. [closing].</li>
+
+    <li>opening->Un [tract_synonym] pour [IDEO_name], couché par [ANYPAWN_nameIndef] et imprimé sur [worldname]</li>
+    <li>opening->[ANYPAWN_nameIndef] a écrit ce [tract_synonym] pour qu'on le glisse dans la main des inconnus</li>
+    <li>opening->Un [tract_synonym] qui plaide pour [IDEO_name], daté de [date_season]</li>
+    <li>opening->Ce [tract_synonym] s'adresse à quiconque ne compte pas encore parmi les [IDEO_memberNamePlural]</li>
+    <li>opening->Le [tract_synonym] commence par concéder, longuement, que le lecteur a toutes les raisons d'être sceptique</li>
+
+    <li>argument->Il expose ce que croient les [IDEO_memberNamePlural] et, avec plus d'insistance encore, pourquoi tous les autres se trompent</li>
+    <li>argument->Des chapitres entiers répondent à des objections que le lecteur n'a pas encore formulées</li>
+    <li>argument->C'est un dialogue entre un [IDEO_memberName] et un sceptique, et le sceptique perd</li>
+    <li>argument->La partie centrale énumère ce que [ANYPAWN_label] a abandonné, et ce qui en est advenu</li>
+    <li>argument->Cela tient moins de l'argumentation que d'une lettre écrite par quelqu'un de certain qui aimerait de la compagnie</li>
+    <li>argument(quality[greater_than]3)->Le raisonnement est patient, difficile à interrompre, et ne hausse jamais le ton</li>
+    <li>argument(quality[less_than]3)->Le raisonnement est bruyant, répétitif, et de plus en plus facile à repousser</li>
+
+    <li>closing->Il se termine en nommant les [IDEO_memberNamePlural] que le lecteur connaît déjà</li>
+    <li>closing->Il se termine sans conclusion, comme s'il attendait qu'on le contredise</li>
+    <li>closing->La dernière page est blanche, laissée au lecteur pour qu'il y écrive sa réponse</li>
+    <li>closing(quality[greater_than]4)->À la dernière page il a cessé d'argumenter et se contente de décrire une vie, ce qui est pire pour le sceptique</li>
+    <li>closing(quality[less_than]2)->Il s'arrête au milieu d'une phrase, et la reliure laisse penser que personne n'a vérifié</li>
+
+    <li>tract_synonym->tract</li>
+    <li>tract_synonym->catéchisme</li>
+    <li>tract_synonym->manifeste</li>
+    <li>tract_synonym->plaidoyer</li>
+    <li>tract_synonym->pamphlet</li>
+    <li>tract_synonym->libelle</li>
+    <li>tract_synonym->bréviaire</li>
+  </NeverOutOfPrint_Description_IdeoligionBook.rulePack.rulesStrings>
+
+</LanguageData>

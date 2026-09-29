@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The base game has no writing or printing research of its own: books arrive only through
+       trade, quests and map generation. This is the only gate on the presses. When Vanilla Books
+       Expanded is loaded it already owns a project called "printing", so Patches/VanillaBooksExpanded.xml
+       removes this one and points the presses at VBE_Printing instead - two projects with the
+       same label in one tree is worse than either. -->
+  <ResearchProjectDef>
+    <defName>NeverOutOfPrint_Printing</defName>
+    <label>printing</label>
+    <description>Build a printing press, which lets your colonists copy any book they own. A copy teaches exactly what the original teaches; what it does not carry is the book's resale value.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>6.30</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

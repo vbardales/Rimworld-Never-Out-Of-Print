@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The base game builds a book's title by resolving the symbol 'title' and its blurb by
+       resolving 'desc' (Verse.Book.GenerateBook). The IDEO_ symbols below are supplied at
+       generation time by BookOutcomeDoer_Ideoligion.GetTopicRuleStrings, through the game's own
+       GrammarUtility.RulesForIdeo, so a book names the faith it argues for.
+
+       These packs deliberately do not use [subject_primary]: that symbol only exists for doers
+       that return rule packs from GetTopicRulePacks, and those are resolved before a doer's rule
+       strings are in scope - so an ideoligion name could not reach it. -->
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NeverOutOfPrint_Namer_IdeoligionBook</defName>
+    <include>
+      <li>ArtNameUtility</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>title->On [IDEO_name]</li>
+        <li>title->The [IDEO_name] [tract]</li>
+        <li>title->[IDEO_name]: A [tract]</li>
+        <li>title->The Way of the [IDEO_memberNamePlural]</li>
+        <li>title->Why We Are [IDEO_memberNamePlural]</li>
+        <li>title->What the [IDEO_memberNamePlural] Know</li>
+        <li>title->A [IDEO_memberName] Answers</li>
+        <li>title->Letters to a Young [IDEO_memberName]</li>
+        <li>title->First Principles of [IDEO_name]</li>
+        <li>title->[IDEO_name] and the [Character]</li>
+        <li>title->The [AdjectiveAny] Truth About [IDEO_name]</li>
+        <li>title->Against the Enemies of [IDEO_name]</li>
+        <li>title->[IDEO_name] in the [TerrainFeature]</li>
+        <li>title->Our [ConceptAny], Their [ConceptAny]</li>
+        <li>title->[ANYPAWN_nameIndef]'s [tract] on [IDEO_name]</li>
+
+        <li>tract->Catechism</li>
+        <li>tract->Reader</li>
+        <li>tract->Primer</li>
+        <li>tract->Manifesto</li>
+        <li>tract->Testament</li>
+        <li>tract->Apology</li>
+        <li>tract->Dialogues</li>
+        <li>tract->Confession</li>
+        <li>tract->Sermons</li>
+        <li>tract->Meditations</li>
+        <li>tract->Handbook</li>
+        <li>tract->Defence</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NeverOutOfPrint_Description_IdeoligionBook</defName>
+    <include>
+      <li>ArtDescriptionUtility_Global</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>desc->[opening]. [argument]. [closing].</li>
+
+        <li>opening->A [tract_synonym] for [IDEO_name], set down by [ANYPAWN_nameIndef] and printed on [worldname]</li>
+        <li>opening->[ANYPAWN_nameIndef] wrote this [tract_synonym] to be pressed into the hands of strangers</li>
+        <li>opening->A [tract_synonym] arguing the case for [IDEO_name], dated [date_season]</li>
+        <li>opening->This [tract_synonym] addresses itself to anyone who is not yet one of the [IDEO_memberNamePlural]</li>
+        <li>opening->The [tract_synonym] opens by conceding, at length, that the reader has every reason to be sceptical</li>
+
+        <li>argument->It takes the reader through what the [IDEO_memberNamePlural] believe and, more insistently, why everyone else is mistaken</li>
+        <li>argument->Whole chapters are given over to answering objections the reader has not yet raised</li>
+        <li>argument->It is written as a conversation between a [IDEO_memberName] and a doubter, and the doubter loses</li>
+        <li>argument->The middle section is a list of the things [ANYPAWN_label] gave up, and what came of it</li>
+        <li>argument->It reads less like an argument than like a letter from someone who is certain and would like company</li>
+        <li>argument(quality[greater_than]3)->The reasoning is patient and hard to interrupt, and it does not raise its voice</li>
+        <li>argument(quality[less_than]3)->The reasoning is loud, repetitive, and easier to resist the further one reads</li>
+
+        <li>closing->It ends by naming the [IDEO_memberNamePlural] the reader already knows</li>
+        <li>closing->It ends without a conclusion, as though expecting to be argued with</li>
+        <li>closing->The last page is blank, left for the reader to write their own answer</li>
+        <li>closing(quality[greater_than]4)->By the last page it has stopped arguing and simply describes a life, which is worse for the doubter</li>
+        <li>closing(quality[less_than]2)->It ends mid-thought, and the binding suggests nobody checked</li>
+
+        <li>tract_synonym->tract</li>
+        <li>tract_synonym->pamphlet</li>
+        <li>tract_synonym->catechism</li>
+        <li>tract_synonym->primer</li>
+        <li>tract_synonym->manifesto</li>
+        <li>tract_synonym->apology</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

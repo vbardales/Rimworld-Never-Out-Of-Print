@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Every book gets the comp that records whether it was printed. The XPath matches on the
+       comp the def declares in its own body rather than on its parent, because patches run
+       before def inheritance is resolved - a def that inherits <comps> from BookBase and adds
+       CompProperties_Book of its own still matches here, and so does any modded book that does
+       the same without ever naming BookBase. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[comps/li[@Class="CompProperties_Book"]]/comps</xpath>
+    <value>
+      <li>
+        <compClass>NeverOutOfPrint.CompCopiedBook</compClass>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- A copy is worth a tenth of the original to a trader. Reading it is worth exactly the same;
+       what a copy cannot reproduce is provenance. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
+    <value>
+      <li Class="NeverOutOfPrint.StatPart_CopiedBook">
+        <factorOriginal>1</factorOriginal>
+        <factorCopied>0.1</factorCopied>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>

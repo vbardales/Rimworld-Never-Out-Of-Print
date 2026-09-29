@@ -1,0 +1,12 @@
+* text=auto
+
+*.xml   text
+*.md    text
+*.txt   text
+*.cs    text
+*.csproj text
+*.props text
+
+*.png binary
+*.dll binary
+*.ico binary

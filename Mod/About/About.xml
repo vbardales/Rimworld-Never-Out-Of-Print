@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>nelim.neveroutofprint</packageId>
+  <name>Never Out of Print</name>
+  <author>Ben Lubar and Efi, Mlie - reconstruction: nelim</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <url>https://github.com/vbardales/Rimworld-Never-Out-Of-Print</url>
+  <description>Copy the books you own, and print the ones that argue.
+
+The base game has no way to make a book. Books arrive by trade, by quest reward and by map generation, and when a colonist has read one to the end that is the end of it - there is one copy, and one colonist can hold it at a time. This mod adds the press that answers that, and a fourth kind of book worth running off in quantity.
+
+PRINTING PRESSES
+
+Two of them, unlocked by a printing research project. The manual press is medieval and takes 150 wood or metal; the electric press needs power and runs four times as fast. Both take bills like any workbench.
+
+- Copy book. Pick a book from the bill's ingredient filter and print another. The book itself is not consumed - it goes back on the shelf when the job is done. Costs 100 cloth per copy.
+- Copy book with fewest copies. The same bill pointed at whichever title the colony is shortest of, so one bill set to three keeps three of everything on the shelves rather than thirty of the nearest one.
+
+A copy teaches exactly what the original teaches. That is the design: the skill rates, the research subjects, the joy factor and the mental-break chance are carried across verbatim, quality included, because re-rolling them would turn the press into a slot machine - print schematics until one of them happens to advance the project you wanted. What a copy does not carry is a one-off discovery. Some books hold a quest, and an Odyssey map holds one every time; a copy of a map is a map of the same place, without a second treasure at the end of it.
+
+Copies are marked as copies. They are worth a tenth of the original to a trader, they say so in the inspect pane and in the stats report, and stockpiles get two new filters - allow copied books, allow original books - so a trade beacon can be told to sell the printed ones and keep what the colony actually found.
+
+This works on every book on the base game's book system: textbooks, schematics, novels, tomes from Anomaly, maps from Odyssey, and books added by other mods, including Vanilla Books Expanded. Nothing about those books is patched; the press simply reads whatever is in them.
+
+IDEOLIGION BOOKS (needs Ideology)
+
+A book that argues for one ideoligion, and which is persuasive while it is being read. A believer reading their own faith's book comes away steadier in it. Anyone else loses certainty in theirs, and a reader who runs out of certainty converts, through the game's own conversion path - the same one the conversion ritual uses, with the same history event and the same memory of the faith they left.
+
+How hard it pushes depends on quality, and an awful one is negative: a badly argued tract drives its own believers away and hardens the doubters it was written for. The blurb tells you which way a given copy actually pushes.
+
+Colonists do not go looking for a rival faith's book on their own - the game asks each book whether reading it would leave the reader better off, and that one answers no. Leave it where they will find it anyway, or order the read. They turn up in trader stock and quest rewards on their own, like every other book. With a press you can print more of one. With Vanilla Books Expanded installed you can also write them at a writers' table, and a colonist writes for their own faith.
+
+Reading policies get an "ideoligion" effect alongside skill gain and research, so a policy can allow every book but that one.
+
+BURNING BOOKS
+
+The base game marks books as burnable by recipe and then ships no recipe that burns one. This adds it, wherever burning drugs is already possible - the campfire, the crematorium.
+
+WHAT THIS IS
+
+A rebuild of the copying and ideoligion halves of Vanilla Books Expanded Expanded, by Ben Lubar and Efi, continued by Mlie - a mod for RimWorld 1.3 and 1.4 which has not been updated and no longer works. It is MIT licensed, so its defs, its recipe balance and its artwork are reused here with the licence kept and all three credited.
+
+The code is not. RimWorld 1.5 put books in the base game, and Vanilla Books Expanded was rewritten on top of them; every class the old addon hooked belonged to the version before that and is gone. So none of it was ported. The copying is written against the base game's own book system, and the ideoligion book - which used to need a Thing class, a job, a job driver and a joy giver of its own - is now a single reading outcome, because since 1.5 the base game already knows how to make a colonist sit down with a book.
+
+The consequence worth knowing: this does not need Vanilla Books Expanded and does not extend it. If you have it, the two fit together - the presses hang off its printing research instead of adding a second one under the same name, and its tables can write ideoligion books. If you do not, everything here still works on the base game's books.
+
+Available in English and French.
+
+CREDIT AND LICENCE
+
+Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2894816192 - declares 1.3 and 1.4. Source: https://github.com/emipa606/VanillaBooksExpandedExpanded (archived). MIT License, Copyright (c) 2020 Mlie; the notice ships with this mod.
+
+AI-GENERATED: this mod's C# and defs were written with the help of an AI assistant (Claude, by Anthropic), under human direction and in-game testing.
+
+THANKS: to Ben Lubar and Efi for the original mod and for the design this rebuild follows, to Mlie for keeping it running for two more versions and for licensing it, and to Erazil for the ideoligion book artwork.
+
+See ATTRIBUTION.md in the repository for what was reused, what was left behind, and where the licence was checked.
+
+This one is MIT too. Full source: https://github.com/vbardales/Rimworld-Never-Out-Of-Print
+
+Content mod: removing it mid-save destroys any presses built and any ideoligion books in the colony. Copies of ordinary books are ordinary books and survive.
+
+IF I GO QUIET: if I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+[url=https://github.com/vbardales/Rimworld-Never-Out-Of-Print]Source code on GitHub[/url]</description>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>Ludeon.RimWorld.Odyssey</li>
+    <li>VanillaExpanded.VBooksE</li>
+  </loadAfter>
+</ModMetaData>

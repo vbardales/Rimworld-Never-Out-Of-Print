@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- BookEffects is the root of the tree a reading policy shows in its "effects" column
+       (ReadingPolicy builds its effectFilter from ThingCategoryDefOf.BookEffects with
+       onlySpecialFilters). The base game hangs SkillGain and ResearchGain off it; this adds a
+       third branch so a policy can say "read anything but the propaganda". -->
+  <ThingCategoryDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NeverOutOfPrint_Persuasion</defName>
+    <label>persuasion</label>
+    <parent>BookEffects</parent>
+  </ThingCategoryDef>
+
+</Defs>

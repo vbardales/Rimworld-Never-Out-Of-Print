@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <NeverOutOfPrint_Manual.label>presse à imprimer</NeverOutOfPrint_Manual.label>
+  <NeverOutOfPrint_Manual.description>Un dispositif mécanique qui presse une surface encrée contre un support d'impression, du tissu par exemple, et y transfère l'encre. Sert à imprimer des copies de livres.</NeverOutOfPrint_Manual.description>
+
+  <NeverOutOfPrint_Electric.label>presse à imprimer électrique</NeverOutOfPrint_Electric.label>
+  <NeverOutOfPrint_Electric.description>Un dispositif mécanique complexe qui presse une surface encrée contre un support d'impression, du tissu par exemple, et y transfère l'encre. Sert à imprimer rapidement des copies de livres. Sa taille et sa complexité interdisent de la déplacer une fois construite.</NeverOutOfPrint_Electric.description>
+
+  <NeverOutOfPrint_CopiedBookPlaceholder.label>livre copié</NeverOutOfPrint_CopiedBookPlaceholder.label>
+  <NeverOutOfPrint_CopiedBookPlaceholder.description>Une copie d'un livre. Cet espace réservé est remplacé par une copie du livre que la facture a pris comme ingrédient.</NeverOutOfPrint_CopiedBookPlaceholder.description>
+
+</LanguageData>

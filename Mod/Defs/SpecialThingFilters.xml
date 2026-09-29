@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Stockpile-side: separate the presses' output from what the colony actually owns, so a
+       trade beacon can be told to sell originals and keep copies, or the reverse. -->
+  <SpecialThingFilterDef>
+    <defName>NeverOutOfPrint_AllowCopies</defName>
+    <label>allow copied books</label>
+    <description>Allow books that were printed on a printing press.</description>
+    <parentCategory>Books</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowNeverOutOfPrintCopies</saveKey>
+    <workerClass>NeverOutOfPrint.SpecialThingFilterWorker_CopiedBooks</workerClass>
+  </SpecialThingFilterDef>
+
+  <SpecialThingFilterDef>
+    <defName>NeverOutOfPrint_AllowOriginals</defName>
+    <label>allow original books</label>
+    <description>Allow books that were not printed on a printing press.</description>
+    <parentCategory>Books</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowNeverOutOfPrintOriginals</saveKey>
+    <workerClass>NeverOutOfPrint.SpecialThingFilterWorker_OriginalBooks</workerClass>
+  </SpecialThingFilterDef>
+
+  <!-- Reading-policy side: an ideoligion book is the one book a colonist can be harmed by
+       reading, so a policy has to be able to refuse it by effect and not only by def. -->
+  <SpecialThingFilterDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NeverOutOfPrint_AllowBookIdeoligion</defName>
+    <label>ideoligion</label>
+    <description>Allow books which argue for an ideoligion.</description>
+    <parentCategory>NeverOutOfPrint_Persuasion</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowBookIdeoligion</saveKey>
+    <workerClass>NeverOutOfPrint.SpecialThingFilterWorker_AllowBookIdeoligion</workerClass>
+  </SpecialThingFilterDef>
+
+</Defs>

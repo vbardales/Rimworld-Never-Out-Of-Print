@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- A recipe must name a product def, and the product of a copy is not known until the bill
+       picks its ingredient. This def stands in the <products> slot so the bill has something to
+       count and to draw; nothing is ever made of it, because Patch_GenRecipe_MakeRecipeProducts
+       replaces the output before it exists.
+
+       It deliberately carries no CompProperties_Book. BookUtility.GetBookDefs() gathers every
+       ThingDef with a CompBook and hands the list to traders, quest rewards and map generation:
+       a placeholder with a book comp would turn up in trader stock as an unreadable, untitled
+       book. -->
+  <ThingDef>
+    <defName>NeverOutOfPrint_CopiedBookPlaceholder</defName>
+    <label>copied book</label>
+    <description>A copy of a book. This placeholder is replaced by a copy of whichever book the bill used as its ingredient.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <tradeability>None</tradeability>
+    <destroyOnDrop>true</destroyOnDrop>
+    <altitudeLayer>Item</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <selectable>false</selectable>
+    <graphicData>
+      <texPath>Things/Item/Book/Textbook/Textbook</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <RecipeDef Name="NeverOutOfPrint_CopyBookBase" Abstract="True">
+    <jobString>Copying a book.</jobString>
+    <workAmount>12000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Intellectual</workSkill>
+    <requiredGiverWorkType>Crafting</requiredGiverWorkType>
+    <effectWorking>Sculpt</effectWorking>
+    <soundWorking>Recipe_Sculpt</soundWorking>
+    <workerClass>NeverOutOfPrint.RecipeWorker_CopyBook</workerClass>
+    <recipeUsers>
+      <li>NeverOutOfPrint_Manual</li>
+      <li>NeverOutOfPrint_Electric</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Cloth</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <customSummary>book to copy (not consumed)</customSummary>
+          <allowWithComp>CompBook</allowWithComp>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Cloth</li>
+      </thingDefs>
+      <allowWithComp>CompBook</allowWithComp>
+    </fixedIngredientFilter>
+    <products>
+      <NeverOutOfPrint_CopiedBookPlaceholder>1</NeverOutOfPrint_CopiedBookPlaceholder>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="NeverOutOfPrint_CopyBookBase">
+    <defName>NeverOutOfPrint_CopyBook</defName>
+    <label>copy book</label>
+    <description>Use the printing press to make a copy of a book. The book itself is not consumed. A copy teaches exactly what the original teaches, but is worth far less to a trader, and a copy never carries the one-off discovery that some books hold.</description>
+    <workerCounterClass>NeverOutOfPrint.RecipeWorkerCounter_CopyBook</workerCounterClass>
+  </RecipeDef>
+
+  <RecipeDef ParentName="NeverOutOfPrint_CopyBookBase">
+    <defName>NeverOutOfPrint_CopyBookFewest</defName>
+    <label>copy book with fewest copies</label>
+    <description>Use the printing press to copy whichever allowed book currently has the fewest copies in the colony. Set the target count once and the press keeps the whole library evenly stocked.</description>
+    <workerCounterClass>NeverOutOfPrint.RecipeWorkerCounter_CopyBookFewest</workerCounterClass>
+  </RecipeDef>
+
+  <!-- The base game marks books burnableByRecipe and then never offers a recipe that burns one.
+       This is that recipe, and it goes wherever BurnDrugs goes (Patches/BurnBooks.xml). -->
+  <RecipeDef>
+    <defName>NeverOutOfPrint_BurnBooks</defName>
+    <label>burn books</label>
+    <description>Burn unwanted books to completely destroy them.</description>
+    <jobString>Burning books.</jobString>
+    <workAmount>60</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <requiredGiverWorkType>Hauling</requiredGiverWorkType>
+    <effectWorking>BurnDrug</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <ignoreIngredientCountTakeEntireStacks>true</ignoreIngredientCountTakeEntireStacks>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Books</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Books</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <WorkGiverDef>
+    <defName>NeverOutOfPrint_DoBills</defName>
+    <label>operate printing press</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>200</priorityInType>
+    <fixedBillGiverDefs>
+      <li>NeverOutOfPrint_Manual</li>
+      <li>NeverOutOfPrint_Electric</li>
+    </fixedBillGiverDefs>
+    <verb>print</verb>
+    <gerund>printing at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+</Defs>

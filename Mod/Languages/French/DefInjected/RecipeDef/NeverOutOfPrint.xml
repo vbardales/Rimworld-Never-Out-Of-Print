@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <NeverOutOfPrint_CopyBook.label>copier un livre</NeverOutOfPrint_CopyBook.label>
+  <NeverOutOfPrint_CopyBook.description>Utiliser la presse pour faire une copie d'un livre. Le livre lui-même n'est pas consommé. Une copie enseigne exactement ce qu'enseigne l'original, mais vaut bien moins cher chez un marchand, et ne porte jamais la découverte unique que recèlent certains livres.</NeverOutOfPrint_CopyBook.description>
+  <NeverOutOfPrint_CopyBook.jobString>Copie d'un livre.</NeverOutOfPrint_CopyBook.jobString>
+  <NeverOutOfPrint_CopyBook.ingredients.1.filter.customSummary>livre à copier (non consommé)</NeverOutOfPrint_CopyBook.ingredients.1.filter.customSummary>
+
+  <NeverOutOfPrint_CopyBookFewest.label>copier le livre le plus rare</NeverOutOfPrint_CopyBookFewest.label>
+  <NeverOutOfPrint_CopyBookFewest.description>Utiliser la presse pour copier celui des livres autorisés dont la colonie possède le moins d'exemplaires. Réglez une fois le nombre voulu et la presse maintient toute la bibliothèque également fournie.</NeverOutOfPrint_CopyBookFewest.description>
+  <NeverOutOfPrint_CopyBookFewest.jobString>Copie d'un livre.</NeverOutOfPrint_CopyBookFewest.jobString>
+  <NeverOutOfPrint_CopyBookFewest.ingredients.1.filter.customSummary>livre à copier (non consommé)</NeverOutOfPrint_CopyBookFewest.ingredients.1.filter.customSummary>
+
+  <NeverOutOfPrint_BurnBooks.label>brûler des livres</NeverOutOfPrint_BurnBooks.label>
+  <NeverOutOfPrint_BurnBooks.description>Brûler des livres dont on ne veut plus, pour les détruire complètement.</NeverOutOfPrint_BurnBooks.description>
+  <NeverOutOfPrint_BurnBooks.jobString>Livres brûlés.</NeverOutOfPrint_BurnBooks.jobString>
+
+</LanguageData>

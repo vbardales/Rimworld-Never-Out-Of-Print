@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- A fourth kind of book, built the way the base game builds its three: a ThingDef off
+       BookBase carrying a CompProperties_Book and one outcome doer. Everything else - being
+       picked up, carried to a chair, read, put back, listed by reading policies, generated for
+       traders and quest rewards, shelved in a bookcase - is the base game's, unchanged.
+
+       Open and vertical graphics are the base game's novel. The cover is deliberately blank:
+       the ideoligion's own icon is drawn over it at runtime, which is what tells two of these
+       apart on the floor. -->
+  <ThingDef ParentName="BookBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NeverOutOfPrint_IdeoligionBook</defName>
+    <label>ideoligion book</label>
+    <description>A bound argument for one ideoligion, written to be read alone and to be persuasive while it is read. A believer who reads their own faith's book comes away steadier in it. Anyone else comes away less sure of their own - and a reader who runs out of certainty altogether converts.\n\nBadly made copies do the opposite of what they intend.</description>
+    <thingClass>NeverOutOfPrint.IdeoligionBook</thingClass>
+    <graphicData>
+      <texPath>Things/Item/NeverOutOfPrint_IdeoligionBook</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+    <uiIconPath>Things/Item/NeverOutOfPrint_IdeoligionBook_MenuIcon</uiIconPath>
+    <statBases>
+      <MarketValue>200</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Book">
+        <nameMaker>NeverOutOfPrint_Namer_IdeoligionBook</nameMaker>
+        <descriptionMaker>NeverOutOfPrint_Description_IdeoligionBook</descriptionMaker>
+        <!-- Propaganda is written about a living quarrel, not handed down from antiquity. -->
+        <ageYearsRange>0~60</ageYearsRange>
+        <openGraphic>
+          <texPath>Things/Item/Book/Novel/Novel_Open</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.7</drawSize>
+        </openGraphic>
+        <verticalGraphic>
+          <texPath>Things/Item/Book/Novel/Novel_Vertical</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <addTopAltitudeBias>true</addTopAltitudeBias>
+        </verticalGraphic>
+        <doers>
+          <li Class="NeverOutOfPrint.BookOutcomeProperties_Ideoligion" />
+        </doers>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

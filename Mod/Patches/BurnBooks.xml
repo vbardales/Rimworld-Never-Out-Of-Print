@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Books are flagged burnableByRecipe in Core and no recipe in the game burns one. Put the
+       book-burning recipe wherever drug-burning already is - the campfire and the crematorium,
+       plus anything a mod has added to that same list. -->
+  <Operation Class="PatchOperationInsert">
+    <xpath>Defs/ThingDef/recipes/li[text()="BurnDrugs"]</xpath>
+    <value>
+      <li>NeverOutOfPrint_BurnBooks</li>
+    </value>
+  </Operation>
+
+</Patch>

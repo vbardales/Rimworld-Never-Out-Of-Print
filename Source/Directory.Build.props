@@ -1,0 +1,14 @@
+<Project>
+
+  <PropertyGroup>
+    <!--
+      Build intermediates go outside the mod folder. RimWorld's Workshop uploader sends the whole
+      directory (SteamUGC.SetItemContent on the root, no exclusion possible): leaving obj/ inside
+      means publishing the reference copy of Assembly-CSharp.dll, and so redistributing the game's
+      own code. This has to live in a Directory.Build.props: NuGet restore reads the property
+      before the csproj.
+    -->
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\.build\obj\NeverOutOfPrint\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+</Project>
