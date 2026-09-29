@@ -1,14 +1,15 @@
 {
   "version": "1.6",
   "paletteSource": "Art/preview-palette.json",
+  "copySource": "Art/preview-copy.json",
   "iconBadgeCorner": "bottom-left",
   "elements": {
-    "h1": {
+    ".title-main": {
       "bounds": {
         "x": 50,
-        "y": 54,
-        "width": 430,
-        "height": 50.59375
+        "y": 48,
+        "width": 382.296875,
+        "height": 62
       },
       "fonts": [
         {
@@ -17,7 +18,26 @@
           "isCustomFont": false,
           "glyphCount": 18
         }
-      ]
+      ],
+      "minimumContrast": 10.865
+    },
+    ".suffix": {
+      "bounds": {
+        "x": 50,
+        "y": 54,
+        "width": 0,
+        "height": 0
+      },
+      "fonts": []
+    },
+    ".tag": {
+      "bounds": {
+        "x": 50,
+        "y": 112.59375,
+        "width": 430,
+        "height": 0
+      },
+      "fonts": []
     },
     "p": {
       "bounds": {
@@ -33,7 +53,8 @@
           "isCustomFont": false,
           "glyphCount": 53
         }
-      ]
+      ],
+      "minimumContrast": 7.685
     },
     ".version": {
       "bounds": {
@@ -49,7 +70,13 @@
           "isCustomFont": false,
           "glyphCount": 3
         }
-      ]
+      ],
+      "minimumContrast": 4.656
     }
-  }
+  },
+  "size": [
+    896,
+    504
+  ],
+  "bytes": 517854
 }

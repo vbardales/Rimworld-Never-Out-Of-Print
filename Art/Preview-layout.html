@@ -2,21 +2,14 @@
 :root{--veil:#2A2622;--inkPrimary:#F2ECE1;--inkSecondary:#D9A857;--accent:#B5451F;--badgeInk:#F2ECE1}*{margin:0;padding:0;box-sizing:border-box}
 html,body{width:896px;height:504px;overflow:hidden;font-family:"Segoe UI",system-ui,sans-serif}
 body{background:url(Preview.png) center/cover}
-.veil{position:absolute;inset:0;background:radial-gradient(circle at 0% 0%,rgba(42,38,34,.86) 0%,rgba(42,38,34,0) 74%)}
-.copy{position:absolute;left:50px;top:54px;color:var(--inkPrimary);text-shadow:0 3px 10px rgba(0,0,0,.75)}
+.veil{position:absolute;inset:0;background:radial-gradient(circle at 0% 0%,rgba(42,38,34,.86) 0%,rgba(42,38,34,.86) 48%,rgba(42,38,34,0) 74%)}
+.copy{position:absolute;left:50px;top:54px;width:430px;color:var(--inkPrimary);text-shadow:0 3px 10px rgba(0,0,0,.75)}
 h1{font-size:46px;font-weight:600;line-height:1.1;letter-spacing:0}
-.conn{font-size:.65em}
+.suffix{font-size:.65em;color:var(--inkSecondary)}
+.tag{font-size:24px;font-weight:400;line-height:1.1;letter-spacing:.2px;margin-top:8px;color:var(--inkSecondary)}
 .rule{width:58px;height:3px;background:var(--accent);margin:20px 0 16px}
 p{font-size:21px;font-weight:400;line-height:1.45;width:430px;letter-spacing:0;color:var(--inkPrimary)}
 .badge{position:absolute;right:0;top:0;width:80px;height:80px;background:var(--accent);clip-path:polygon(0 0,100% 0,100% 100%)}
 .version{position:absolute;left:869px;top:27px;transform:translate(-50%,-50%) rotate(45deg);font-size:26px;font-weight:700;line-height:1;color:var(--badgeInk)}
-/* ModIcon-badge.png is a pre-baked asset (Make-PreviewBadge.ps1 -SaveTrimmedIconTo): the shipped ModIcon.png's
-   near-black background flood-filled to transparent from its border only (a plain color-key would also blank
-   matching pixels inside the artwork), then cropped to its own alpha bounding box (no dead transparent margin).
-   That PNG->PNG step needs System.Drawing; this pipeline has no Node image library, so it stays a one-off
-   asset here rather than a per-render step. Placement below is plain CSS: width fixes the box, height follows
-   the asset's own aspect ratio; left/bottom flush it into the corner; translate(%,%) is a fraction of the
-   badge's OWN box (not the page), rotate happens after, around the default center transform-origin.
-*/
 .icon-badge{position:absolute;left:0;bottom:0;width:220px;transform:translate(-12.5%,12.5%) rotate(15deg)}
-</style><div class="veil"></div><div class="copy"><h1>Never Out <span class="conn">of</span> Print</h1><div class="rule"></div><p>Copy the books you own, and print the ones that argue.</p></div><div class="badge"></div><div class="version">1.6</div><img class="icon-badge" src="ModIcon-badge.png">
+</style><div class="veil"></div><div class="copy"><h1><span class="title-main">Never Out of Print</span><br><span class="suffix"></span></h1><div class="tag"></div><div class="rule"></div><p>Copy the books you own, and print the ones that argue.</p></div><div class="badge"></div><div class="version">1.6</div><img class="icon-badge" src="ModIcon-badge.png">
