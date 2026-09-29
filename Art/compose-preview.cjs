@@ -8,7 +8,7 @@ fs.mkdirSync(qa, { recursive: true });
 const palette = JSON.parse(fs.readFileSync(path.join(__dirname, 'preview-palette.json')));
 const about = fs.readFileSync(path.join(root, 'Mod/About/About.xml'), 'utf8');
 const version = [...about.match(/<supportedVersions>([\s\S]*?)<\/supportedVersions>/)[1].matchAll(/<li>(.*?)<\/li>/g)].map(x => x[1]).sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).pop();
-const source = fs.readFileSync(path.join(root, 'Mod/About/Preview.png')).toString('base64');
+const source = fs.readFileSync(path.join(root, 'Art/Preview.png')).toString('base64');
 const html = `<!doctype html><meta charset="utf-8"><style>
 :root{${Object.entries(palette).map(([k, v]) => `--${k}:${v}`).join(';')}}
 *{box-sizing:border-box}html,body{margin:0;width:896px;height:504px;overflow:hidden}
@@ -34,6 +34,28 @@ const contrast = (a, b) => (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
   const font = await page.evaluate(() => document.fonts.check('46px "Segoe UI"'));
   const boxes = await page.evaluate(() => Object.fromEntries(['h1', '.summary'].map(s => { const b = document.querySelector(s).getBoundingClientRect(); return [s, { x: b.x, y: b.y, width: b.width, height: b.height }]; })));
   await page.screenshot({ path: path.join(root, 'Mod/About/Preview.png') });
+  // ModIcon stamp, cutout from its near-black background and composited into a free
+  // corner (STYLE_RIMWORLD.md, "Le ModIcon détouré sur la vitrine", 2026-09-29):
+  // left corner +15deg, right corner -15deg. Text sits top-left here, so the icon
+  // goes bottom-right at -15deg.
+  const iconRaw = await sharp(path.join(root, 'Mod/About/ModIcon.png')).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const bgColor = [iconRaw.data[0], iconRaw.data[1], iconRaw.data[2]];
+  const cut = Buffer.from(iconRaw.data);
+  const lowT = 40, highT = 90;
+  for (let i = 0; i < cut.length; i += 4) {
+    const dr = cut[i] - bgColor[0], dg = cut[i + 1] - bgColor[1], db = cut[i + 2] - bgColor[2];
+    const dist = Math.sqrt(dr * dr + dg * dg + db * db);
+    const a = dist <= lowT ? 0 : dist >= highT ? 255 : Math.round(255 * (dist - lowT) / (highT - lowT));
+    cut[i + 3] = Math.min(cut[i + 3], a);
+  }
+  const cutoutPng = await sharp(cut, { raw: { width: iconRaw.info.width, height: iconRaw.info.height, channels: 4 } }).png().toBuffer();
+  const stampSize = 150, stampMargin = 24, stampRotation = -15;
+  const stamp = await sharp(cutoutPng).resize(stampSize, stampSize).rotate(stampRotation, { background: { r: 0, g: 0, b: 0, alpha: 0 } }).toBuffer();
+  const stampMeta = await sharp(stamp).metadata();
+  const withStamp = await sharp(fs.readFileSync(path.join(root, 'Mod/About/Preview.png')))
+    .composite([{ input: stamp, left: 896 - stampMeta.width - stampMargin, top: 504 - stampMeta.height - stampMargin }])
+    .png().toBuffer();
+  fs.writeFileSync(path.join(root, 'Mod/About/Preview.png'), withStamp);
   await page.addStyleTag({ content: '.copy{visibility:hidden}.version{visibility:hidden}' });
   const bg = await page.screenshot({ path: path.join(qa, 'background.png') });
   const { data, info } = await sharp(bg).removeAlpha().raw().toBuffer({ resolveWithObject: true });
