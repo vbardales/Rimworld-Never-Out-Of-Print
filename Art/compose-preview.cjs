@@ -38,18 +38,39 @@ const contrast = (a, b) => (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
   // corner (STYLE_RIMWORLD.md, "Le ModIcon détouré sur la vitrine", 2026-09-29):
   // left corner +15deg, right corner -15deg. Text sits top-left here, so the icon
   // goes bottom-right at -15deg.
+  // Flood-fill from the border, not a global colour-distance pass: the icon's own
+  // dark facial linework (eye, smile) can sit at the same near-black distance as the
+  // background and must stay opaque; only background actually connected to the edge
+  // is cut.
   const iconRaw = await sharp(path.join(root, 'Mod/About/ModIcon.png')).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  const bgColor = [iconRaw.data[0], iconRaw.data[1], iconRaw.data[2]];
-  const cut = Buffer.from(iconRaw.data);
+  const { width: iw, height: ih } = iconRaw.info;
+  const iconData = iconRaw.data;
+  const bgColor = [iconData[0], iconData[1], iconData[2]];
   const lowT = 40, highT = 90;
-  for (let i = 0; i < cut.length; i += 4) {
-    const dr = cut[i] - bgColor[0], dg = cut[i + 1] - bgColor[1], db = cut[i + 2] - bgColor[2];
-    const dist = Math.sqrt(dr * dr + dg * dg + db * db);
-    const a = dist <= lowT ? 0 : dist >= highT ? 255 : Math.round(255 * (dist - lowT) / (highT - lowT));
-    cut[i + 3] = Math.min(cut[i + 3], a);
+  const dist = i4 => Math.hypot(iconData[i4] - bgColor[0], iconData[i4 + 1] - bgColor[1], iconData[i4 + 2] - bgColor[2]);
+  const alphaOverride = new Uint8ClampedArray(iw * ih).fill(255);
+  const visited = new Uint8Array(iw * ih);
+  const queue = [];
+  for (let x = 0; x < iw; x++) { queue.push(x); queue.push((ih - 1) * iw + x); }
+  for (let y = 0; y < ih; y++) { queue.push(y * iw); queue.push(y * iw + iw - 1); }
+  let qi = 0;
+  while (qi < queue.length) {
+    const p = queue[qi++];
+    if (visited[p]) continue;
+    visited[p] = 1;
+    const d = dist(p * 4);
+    if (d > highT) continue;
+    alphaOverride[p] = d <= lowT ? 0 : Math.round(255 * (d - lowT) / (highT - lowT));
+    const x = p % iw, y = (p - x) / iw;
+    if (x > 0) queue.push(p - 1);
+    if (x < iw - 1) queue.push(p + 1);
+    if (y > 0) queue.push(p - iw);
+    if (y < ih - 1) queue.push(p + iw);
   }
-  const cutoutPng = await sharp(cut, { raw: { width: iconRaw.info.width, height: iconRaw.info.height, channels: 4 } }).png().toBuffer();
-  const stampSize = 150, stampMargin = 24, stampRotation = -15;
+  const cut = Buffer.from(iconData);
+  for (let p = 0; p < iw * ih; p++) cut[p * 4 + 3] = Math.min(cut[p * 4 + 3], alphaOverride[p]);
+  const cutoutPng = await sharp(cut, { raw: { width: iw, height: ih, channels: 4 } }).png().toBuffer();
+  const stampSize = 150, stampMargin = 10, stampRotation = -15;
   const stamp = await sharp(cutoutPng).resize(stampSize, stampSize).rotate(stampRotation, { background: { r: 0, g: 0, b: 0, alpha: 0 } }).toBuffer();
   const stampMeta = await sharp(stamp).metadata();
   const withStamp = await sharp(fs.readFileSync(path.join(root, 'Mod/About/Preview.png')))
