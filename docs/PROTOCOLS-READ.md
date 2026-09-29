@@ -12,6 +12,7 @@ moved. Monorepo-root commit hash is the doc's state as read, not this mod's own 
 | `STYLE_RIMWORLD.md` | `90d51374` | Read in full for the ModIcon section specifically ("ModIcon : contrôle, pas génération") — this is the rule that blocked generating one on request. The `Preview.png`/`ModIcon.png` size table (128x128, 896x504) was used directly. |
 | `WORKSHOP_COMMENTS.md` | `08878789` | Process and registry check only (opening ~60 lines); no comment drafted yet since nothing is public. Re-read in full before actually drafting one. |
 | `scripts/SEARCHING.md` | `90d51374` | `Search-Workshop.sh` usage; used it, not raw grep, for every duplicate-coverage search in this reconstruction. |
+| `RECOMPOSER_PREVIEW.md` | `6bbc6202` | The exact surcouche-composition prompt/protocol; followed verbatim for `Art/compose-preview.cjs` (title/résumé layout, palette derivation, contrast/font/byte checks). |
 
 ## Not read this time, and why
 
