@@ -13,7 +13,7 @@ later adopts the CI's `sync-about-description.mjs` pipeline.
 
 ## Screenshot order
 
-`Art/Gallery/0-preview.png` exists: a byte-copy of `Mod/About/Preview.png`, per PUBLISHING.md's
+`Art/gallery/0-preview.png` exists: a byte-copy of `Mod/About/Preview.png`, per PUBLISHING.md's
 gallery-starts-with-Preview rule, one-digit numbering from `0` (owner's 2026-09-29 correction,
 same date as the original `00`/two-digit rule it replaces). The remaining Workshop gallery
 captures (`1-`, `2-`…) do not exist yet. Pending: a press mid-bill, a copy sitting next to its
