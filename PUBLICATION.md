@@ -13,12 +13,13 @@ later adopts the CI's `sync-about-description.mjs` pipeline.
 
 ## Screenshot order
 
-`Art/Gallery/00-Preview.png` exists: a byte-copy of `Mod/About/Preview.png`, per PUBLISHING.md's
-"Toute galerie commence par une copie de la Preview, en position 00" rule. The remaining Workshop
-gallery captures (`01-`, `02-`…) do not exist yet. Pending: a press mid-bill, a copy sitting next
-to its original with the stats-report line visible, an ideoligion book's benefits tooltip, the two
-new stockpile filters. When `Preview.png` is regenerated, `00-` must be recopied in the same step
-(PUBLISHING.md is explicit that a stale `00-` diverges silently otherwise).
+`Art/Gallery/0-preview.png` exists: a byte-copy of `Mod/About/Preview.png`, per PUBLISHING.md's
+gallery-starts-with-Preview rule, one-digit numbering from `0` (owner's 2026-09-29 correction,
+same date as the original `00`/two-digit rule it replaces). The remaining Workshop gallery
+captures (`1-`, `2-`…) do not exist yet. Pending: a press mid-bill, a copy sitting next to its
+original with the stats-report line visible, an ideoligion book's benefits tooltip, the two new
+stockpile filters. When `Preview.png` is regenerated, `0-preview.png` must be recopied in the
+same step (PUBLISHING.md is explicit that a stale `0-` diverges silently otherwise).
 
 ## Thank-you comments
 
