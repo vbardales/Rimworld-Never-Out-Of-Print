@@ -8,6 +8,6 @@
   <NeverOutOfPrint_Electric.description>Un dispositif mécanique complexe qui presse une surface encrée contre un support d'impression, du tissu par exemple, et y transfère l'encre. Sert à imprimer rapidement des copies de livres. Sa taille et sa complexité interdisent de la déplacer une fois construite.</NeverOutOfPrint_Electric.description>
 
   <NeverOutOfPrint_CopiedBookPlaceholder.label>livre copié</NeverOutOfPrint_CopiedBookPlaceholder.label>
-  <NeverOutOfPrint_CopiedBookPlaceholder.description>Une copie d'un livre. Cet espace réservé est remplacé par une copie du livre utilisé comme ingrédient dans la facture.</NeverOutOfPrint_CopiedBookPlaceholder.description>
+  <NeverOutOfPrint_CopiedBookPlaceholder.description>Une copie d'un livre. Cet espace réservé est remplacé par une copie du livre que l'ordre de fabrication utilise comme ingrédient.</NeverOutOfPrint_CopiedBookPlaceholder.description>
 
 </LanguageData>

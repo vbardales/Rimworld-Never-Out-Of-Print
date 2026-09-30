@@ -6,8 +6,8 @@
   <NeverOutOfPrint_StatsReport_BookIsOriginal>Original</NeverOutOfPrint_StatsReport_BookIsOriginal>
 
   <NeverOutOfPrint_BookArguesFor>Plaide pour {0}.</NeverOutOfPrint_BookArguesFor>
-  <NeverOutOfPrint_BookReassures>Plaide pour {0} : conviction +{1} par heure de lecture.</NeverOutOfPrint_BookReassures>
-  <NeverOutOfPrint_BookUnsettles>Plaide pour {0} : conviction -{1} par heure de lecture, et convertit {PAWN_gender ? le lecteur : la lectrice : la personne qui lit} qui n'en a plus.</NeverOutOfPrint_BookUnsettles>
+  <NeverOutOfPrint_BookReassures>Plaide pour {0} : certitude +{1} par heure de lecture.</NeverOutOfPrint_BookReassures>
+  <NeverOutOfPrint_BookUnsettles>Plaide pour {0} : certitude -{1} par heure de lecture, et convertit {PAWN_gender ? le lecteur : la lectrice : la personne qui lit} qui n'en a plus.</NeverOutOfPrint_BookUnsettles>
   <NeverOutOfPrint_BookBackfires>si mal argumenté qu'il fait l'inverse</NeverOutOfPrint_BookBackfires>
 
   <NeverOutOfPrint_NamelessFaith>la foi</NeverOutOfPrint_NamelessFaith>

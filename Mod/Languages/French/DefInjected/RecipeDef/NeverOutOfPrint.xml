@@ -6,13 +6,13 @@
   <NeverOutOfPrint_CopyBook.jobString>Copie d'un livre.</NeverOutOfPrint_CopyBook.jobString>
   <NeverOutOfPrint_CopyBook.ingredients.1.filter.customSummary>livre à copier (non consommé)</NeverOutOfPrint_CopyBook.ingredients.1.filter.customSummary>
 
-  <NeverOutOfPrint_CopyBookFewest.label>copier le livre le plus rare</NeverOutOfPrint_CopyBookFewest.label>
+  <NeverOutOfPrint_CopyBookFewest.label>copier le livre le moins copié</NeverOutOfPrint_CopyBookFewest.label>
   <NeverOutOfPrint_CopyBookFewest.description>Utiliser la presse pour copier le livre autorisé dont la colonie possède le moins d'exemplaires. Une fois le nombre cible réglé, la presse maintient toute la bibliothèque à niveau.</NeverOutOfPrint_CopyBookFewest.description>
   <NeverOutOfPrint_CopyBookFewest.jobString>Copie d'un livre.</NeverOutOfPrint_CopyBookFewest.jobString>
   <NeverOutOfPrint_CopyBookFewest.ingredients.1.filter.customSummary>livre à copier (non consommé)</NeverOutOfPrint_CopyBookFewest.ingredients.1.filter.customSummary>
 
   <NeverOutOfPrint_BurnBooks.label>brûler des livres</NeverOutOfPrint_BurnBooks.label>
   <NeverOutOfPrint_BurnBooks.description>Brûler des livres dont on ne veut plus, pour les détruire complètement.</NeverOutOfPrint_BurnBooks.description>
-  <NeverOutOfPrint_BurnBooks.jobString>Livres brûlés.</NeverOutOfPrint_BurnBooks.jobString>
+  <NeverOutOfPrint_BurnBooks.jobString>Brûlage de livres.</NeverOutOfPrint_BurnBooks.jobString>
 
 </LanguageData>
