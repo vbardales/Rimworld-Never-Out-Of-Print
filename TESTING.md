@@ -28,22 +28,42 @@ outcomes) — that is the Pickle suite below.
 
 ## Pickle suites (done -> tested)
 
-Not yet written, and AUDIT.md requires either a suite or a written justification for its
-absence — neither exists yet, which is itself one of the reasons `stage` has not reached
-`preTest`.
+Written 2026-09-30, `Tests/Pickle/`. Full detail in `Tests/Pickle/README.md`; summary:
 
-Scope to write, once started: at minimum a bill-lifecycle scenario (build a press, queue a copy
-bill, confirm the original survives and a marked copy appears with the same skill/research
-grants and a tenth of the market value), and an ideoligion-book scenario (certainty moves the
-documented direction for a believer and a rival, an awful-quality book pushes the opposite way).
+- `01-loading.feature` (3 scenarios): the mod loads, the presses/recipe/research def database is
+  real, the copy patch reached `Novel` and `MarketValueBase`.
+- `02-copying.feature` (1 scenario): a real bill leaves the original on the shelf, marks the
+  printed copy's `CompCopiedBook`, and the copy's computed market value lands at the documented
+  tenth. Does not use Pickle's built-in `I wait for bill ... to finish` (it polls the recipe's
+  *declared* product, `NeverOutOfPrint_CopiedBookPlaceholder`, which this mod's own Harmony patch
+  never actually spawns — the same reason the built-in step already refuses a `specialProducts`
+  recipe); waits a fixed tick budget and counts `Novel` directly instead.
+- `03-ideoligion.feature` (2 scenarios, `@requires:Ludeon.RimWorld.Ideology`): a believer's
+  own-faith read raises certainty, a rival-faith read lowers it. Calls
+  `BookOutcomeDoer_Ideoligion.OnReadingTick` directly (the method `JobDriver_Reading` itself
+  ticks) rather than orchestrating a full reading job through Pickle, which has no built-in step
+  for it.
+- Custom steps: `Tests/Pickle/Source/Steps.cs`, compiles clean offline (`dotnet build
+  Tests/Pickle/Source/NeverOutOfPrint.PickleSteps.csproj`, 0 errors) via `Krafs.Rimworld.Ref` +
+  `RimWorks.Pickle.Ref`, same as every other mod's Pickle companion — no game install needed to
+  build it, only to run it.
+- **Not converted**: the awful-quality-book scenario ("a badly argued copy pushes the opposite
+  direction"). No built-in Pickle step to force a specific `QualityCategory` on a freshly
+  generated book was found; needs either a custom step writing the comp directly or confirmation
+  a vanilla quality debug action applies to books. Left `unverified` in STATUS.md rather than
+  guessed at.
+
+**Nothing here has been played** — writing it is this criterion; playing it is `done -> tested`,
+filed through the dispatcher, never run by this session directly.
 
 ## Passes
 
-Not yet decided. Per AUDIT.md, at minimum: one pass without optional mods (Core + DLC + Harmony +
-RimLogging + Pickle + this mod), one pass with `loadAfter` mods present (notably Vanilla Books
-Expanded), and — since none of the mods found in the duplicate-coverage search
-(`BACKLOG.md`) declare an incompatibility with this one, and nothing here declares one with them
-either — no incompatibility pass is owed yet. Revisit if that changes.
+Per AUDIT.md, at minimum: one pass without optional mods (Core + Ideology DLC + Harmony +
+RimLogging + Pickle + this mod — Ideology is required for `03-ideoligion.feature`), one pass with
+`loadAfter` mods present (Vanilla Books Expanded, this mod's only optional compat). Neither has
+run. Since none of the mods found in the duplicate-coverage search (`BACKLOG.md`) declare an
+incompatibility with this one, and nothing here declares one with them either, no incompatibility
+pass is owed. No `wsl-deps.map`/config seed needed: no hard `modDependencies`, no settings.
 
 ## Evidence kept
 

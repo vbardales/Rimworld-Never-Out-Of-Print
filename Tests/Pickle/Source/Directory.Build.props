@@ -1,0 +1,10 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- Build intermediates stay out of the test companion, for the same reason they stay out of
+         Mod/: whatever sits beside the features is what the staging script copies into the game. -->
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\..\..\.build\obj\PickleSteps\</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)..\..\..\.build\bin\PickleSteps\</BaseOutputPath>
+  </PropertyGroup>
+
+</Project>
