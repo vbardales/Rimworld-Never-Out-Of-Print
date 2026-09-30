@@ -179,7 +179,9 @@ namespace NeverOutOfPrint
             float perHour = Mathf.Abs(CertaintyPerTick(reader)) * 2500f;
             string line = reader.Ideo == ideoligion
                 ? "NeverOutOfPrint_BookReassures".Translate(faith, perHour.ToStringPercent("0.0"))
-                : "NeverOutOfPrint_BookUnsettles".Translate(faith, perHour.ToStringPercent("0.0"));
+                // reader is named "PAWN" for French's {PAWN_gender ? ...} switch on "convertit" -
+                // English has no such switch and ignores the extra named argument.
+                : "NeverOutOfPrint_BookUnsettles".Translate(faith, perHour.ToStringPercent("0.0"), reader.Named("PAWN"));
 
             // An awful tract has a negative quality factor, so it does the opposite of what it set
             // out to do. Saying which way it actually pushes is more useful than the label.

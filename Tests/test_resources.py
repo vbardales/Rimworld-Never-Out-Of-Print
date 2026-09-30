@@ -45,8 +45,12 @@ print("PASS all distributed XML parses")
 en = resources(ROOT / "Mod/Languages/English/Keyed")
 fr = resources(ROOT / "Mod/Languages/French/Keyed")
 check(set(en) == set(fr), "Keyed languages have identical coverage")
+# A {PAWN_gender ? m : f : n} switch (TRANSLATIONS.md, "French gender agreement", 2026-09-30) is
+# a French-only addition with no English counterpart by design - strip it before the {0}/{1}
+# positional-parameter parity check, or a legitimate gender switch reads as a missing/extra param.
+gender_switch = re.compile(r"\{\w+_gender\s*\?[^{}]*\}")
 for key in en:
-    check(re.findall(r"\{[^{}]+\}", en[key]) == re.findall(r"\{[^{}]+\}", fr[key]), f"parameters match {key}")
+    check(re.findall(r"\{[^{}]+\}", en[key]) == re.findall(r"\{[^{}]+\}", gender_switch.sub("", fr[key])), f"parameters match {key}")
 for f in (ROOT / "Source").glob("*.cs"):
     for key in re.findall(r'"(NeverOutOfPrint_[^"]+)"\.Translate', f.read_text(encoding="utf-8-sig")):
         check(key in en and key in fr, f"source key resolves {key}")
