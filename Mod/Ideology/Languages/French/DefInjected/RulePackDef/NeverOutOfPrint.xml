@@ -47,20 +47,20 @@
     <li>opening->[ANYPAWN_nameIndef] a écrit ce [tract_synonym] pour qu'on le glisse dans la main des inconnus</li>
     <li>opening->Un [tract_synonym] qui plaide pour [IDEO_name], daté de [date_season]</li>
     <li>opening->Ce [tract_synonym] s'adresse à quiconque ne compte pas encore parmi les [IDEO_memberNamePlural]</li>
-    <li>opening->Le [tract_synonym] commence par concéder, longuement, que le lecteur a toutes les raisons d'être sceptique</li>
+    <li>opening->Le [tract_synonym] commence par concéder, longuement, qu'on a toutes les raisons d'être sceptique</li>
 
     <li>argument->Il expose ce que croient les [IDEO_memberNamePlural] et, avec plus d'insistance encore, pourquoi tous les autres se trompent</li>
-    <li>argument->Des chapitres entiers répondent à des objections que le lecteur n'a pas encore formulées</li>
+    <li>argument->Des chapitres entiers répondent à des objections qu'on n'a pas encore formulées</li>
     <li>argument->C'est un dialogue entre un·e [IDEO_memberName] et un·e sceptique, et cette personne perd</li>
     <li>argument->La partie centrale énumère ce que [ANYPAWN_label] a abandonné, et ce qui en est advenu</li>
     <li>argument->Cela tient moins de l'argumentation que d'une lettre écrite par quelqu'un de certain qui aimerait de la compagnie</li>
     <li>argument(quality[greater_than]3)->Le raisonnement est patient, difficile à interrompre, et ne hausse jamais le ton</li>
     <li>argument(quality[less_than]3)->Le raisonnement est bruyant, répétitif, et de plus en plus facile à repousser</li>
 
-    <li>closing->Il se termine en nommant les [IDEO_memberNamePlural] que le lecteur connaît déjà</li>
+    <li>closing->Il se termine en nommant les [IDEO_memberNamePlural] qu'on connaît déjà</li>
     <li>closing->Il se termine sans conclusion, comme s'il attendait qu'on le contredise</li>
-    <li>closing->La dernière page est blanche, laissée au lecteur pour qu'il y écrive sa réponse</li>
-    <li>closing(quality[greater_than]4)->À la dernière page il a cessé d'argumenter et se contente de décrire une vie, ce qui est pire pour le sceptique</li>
+    <li>closing->La dernière page est blanche, laissée pour qu'on y écrive sa réponse</li>
+    <li>closing(quality[greater_than]4)->À la dernière page il a cessé d'argumenter et se contente de décrire une vie, ce qui est pire pour les sceptiques</li>
     <li>closing(quality[less_than]2)->Il s'arrête au milieu d'une phrase, et la reliure laisse penser que personne n'a vérifié</li>
 
     <li>tract_synonym->tract</li>

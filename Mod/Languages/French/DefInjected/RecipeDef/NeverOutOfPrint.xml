@@ -7,7 +7,7 @@
   <NeverOutOfPrint_CopyBook.ingredients.1.filter.customSummary>livre à copier (non consommé)</NeverOutOfPrint_CopyBook.ingredients.1.filter.customSummary>
 
   <NeverOutOfPrint_CopyBookFewest.label>copier le livre le plus rare</NeverOutOfPrint_CopyBookFewest.label>
-  <NeverOutOfPrint_CopyBookFewest.description>Utiliser la presse pour copier celui des livres autorisés dont la colonie possède le moins d'exemplaires. Réglez une fois le nombre voulu et la presse maintient toute la bibliothèque également fournie.</NeverOutOfPrint_CopyBookFewest.description>
+  <NeverOutOfPrint_CopyBookFewest.description>Utiliser la presse pour copier le livre autorisé dont la colonie possède le moins d'exemplaires. Une fois le nombre cible réglé, la presse maintient toute la bibliothèque à niveau.</NeverOutOfPrint_CopyBookFewest.description>
   <NeverOutOfPrint_CopyBookFewest.jobString>Copie d'un livre.</NeverOutOfPrint_CopyBookFewest.jobString>
   <NeverOutOfPrint_CopyBookFewest.ingredients.1.filter.customSummary>livre à copier (non consommé)</NeverOutOfPrint_CopyBookFewest.ingredients.1.filter.customSummary>
 
