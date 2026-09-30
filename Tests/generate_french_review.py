@@ -164,12 +164,14 @@ out.append(
     "a gender-neutral rewording here, or whether a static, unaddressed description is out of its "
     "scope. |\n"
     "| RulePackDef `NeverOutOfPrint_Description_IdeoligionBook`, French rules referencing "
-    "\"le lecteur\" and \"un sceptique\" | e.g. \"que le lecteur a toutes les raisons d'être "
-    "sceptique\", \"un dialogue entre un [IDEO_memberName] et un sceptique\" | Same question: "
-    "these are rhetorical, generic figures in in-world book-blurb flavor text (matching the "
-    "English `the reader`, which is itself ungendered), not a specific generated Pawn the grammar "
-    "resolver tracks — no `PAWN_gender`-style symbol is available in this rule pack's scope "
-    "(only `IDEO_*`, `ANYPAWN_*`, `worldname`, `date_season`). |\n"
+    "\"le lecteur\" | e.g. \"que le lecteur a toutes les raisons d'être sceptique\", \"que le "
+    "lecteur n'a pas encore formulées\" | Same question: this is a rhetorical, generic figure in "
+    "in-world book-blurb flavor text (matching the English `the reader`, which is itself "
+    "ungendered), not a specific generated Pawn the grammar resolver tracks — no "
+    "`PAWN_gender`-style symbol is available in this rule pack's scope (only `IDEO_*`, "
+    "`ANYPAWN_*`, `worldname`, `date_season`). The pack's other generic figure, \"un sceptique\", "
+    "was fixed to \"un·e sceptique\" / \"cette personne\" 2026-09-30 (its article does not need a "
+    "Pawn to agree with, unlike a pronoun would). |\n"
 )
 
 Path(ROOT / "FRENCH_REVIEW.md").write_text("\n".join(out), encoding="utf-8")

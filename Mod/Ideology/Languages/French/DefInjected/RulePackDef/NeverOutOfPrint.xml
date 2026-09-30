@@ -20,8 +20,8 @@
     <li>title->La voie des [IDEO_memberNamePlural]</li>
     <li>title->Pourquoi nous sommes [IDEO_memberNamePlural]</li>
     <li>title->Ce que savent les [IDEO_memberNamePlural]</li>
-    <li>title->Réponse d'un [IDEO_memberName]</li>
-    <li>title->Lettres à un jeune [IDEO_memberName]</li>
+    <li>title->Réponse d'un·e [IDEO_memberName]</li>
+    <li>title->Lettres à un·e jeune [IDEO_memberName]</li>
     <li>title->Premiers principes : [IDEO_name]</li>
     <li>title->La vérité [AdjectiveAny_Feminine] : [IDEO_name]</li>
     <li>title->Contre les ennemis des [IDEO_memberNamePlural]</li>
@@ -51,7 +51,7 @@
 
     <li>argument->Il expose ce que croient les [IDEO_memberNamePlural] et, avec plus d'insistance encore, pourquoi tous les autres se trompent</li>
     <li>argument->Des chapitres entiers répondent à des objections que le lecteur n'a pas encore formulées</li>
-    <li>argument->C'est un dialogue entre un [IDEO_memberName] et un sceptique, et le sceptique perd</li>
+    <li>argument->C'est un dialogue entre un·e [IDEO_memberName] et un·e sceptique, et cette personne perd</li>
     <li>argument->La partie centrale énumère ce que [ANYPAWN_label] a abandonné, et ce qui en est advenu</li>
     <li>argument->Cela tient moins de l'argumentation que d'une lettre écrite par quelqu'un de certain qui aimerait de la compagnie</li>
     <li>argument(quality[greater_than]3)->Le raisonnement est patient, difficile à interrompre, et ne hausse jamais le ton</li>
