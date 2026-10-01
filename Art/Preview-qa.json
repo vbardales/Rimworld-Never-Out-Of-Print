@@ -6,44 +6,33 @@
   "elements": {
     ".title-main": {
       "bounds": {
-        "x": 50,
-        "y": 48,
-        "width": 382.296875,
-        "height": 62
+        "x": 48,
+        "y": 30,
+        "width": 359.6875,
+        "height": 101.1875
       },
       "fonts": [
         {
-          "familyName": "Segoe UI Semibold",
-          "postScriptName": "SegoeUI-Semibold",
-          "isCustomFont": false,
-          "glyphCount": 18
+          "familyName": "RimWordFont",
+          "postScriptName": "RimWordFont",
+          "isCustomFont": true,
+          "glyphCount": 17
         }
-      ],
-      "minimumContrast": 10.865
+      ]
     },
     ".suffix": {
-      "bounds": {
-        "x": 50,
-        "y": 54,
-        "width": 0,
-        "height": 0
-      },
+      "bounds": null,
       "fonts": []
     },
     ".tag": {
-      "bounds": {
-        "x": 50,
-        "y": 112.59375,
-        "width": 430,
-        "height": 0
-      },
+      "bounds": null,
       "fonts": []
     },
     "p": {
       "bounds": {
-        "x": 50,
-        "y": 143.59375,
-        "width": 430,
+        "x": 48,
+        "y": 167.78125,
+        "width": 362.25,
         "height": 60.875
       },
       "fonts": [
@@ -53,8 +42,7 @@
           "isCustomFont": false,
           "glyphCount": 53
         }
-      ],
-      "minimumContrast": 7.685
+      ]
     },
     ".version": {
       "bounds": {
@@ -70,13 +58,23 @@
           "isCustomFont": false,
           "glyphCount": 3
         }
-      ],
-      "minimumContrast": 4.656
+      ]
+    },
+    ".panel": {
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 519.671875,
+        "height": 249.65625
+      }
+    },
+    ".copy": {
+      "bounds": {
+        "x": 48,
+        "y": 30,
+        "width": 430,
+        "height": 198.65625
+      }
     }
-  },
-  "size": [
-    896,
-    504
-  ],
-  "bytes": 517854
+  }
 }
