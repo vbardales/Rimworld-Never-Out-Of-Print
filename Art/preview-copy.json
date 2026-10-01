@@ -11,6 +11,6 @@
   "tag": "",
   "copyLines": ["Copy the books you own, and print the ones that argue."],
   "layout": "panel",
-  "echo": { "file": "preview-echo-lineart-approved-source.png", "mode": "opaque-lineart", "alphaBoost": 3.2, "alphaFloor": 2, "color": "var(--accent)", "left": 190, "top": 10, "width": 280, "height": 270, "opacity": 1, "veil": false, "fadeLeft": true },
+  "echo": { "file": "preview-echo-lineart-approved-source.png", "mode": "opaque-lineart", "alphaBoost": 3.2, "alphaFloor": 2, "color": "var(--accent)", "left": 190, "top": 10, "width": 280, "height": 270, "opacity": 1, "veil": false, "panelWidth": 50, "flipX": true },
   "iconBadge": { "file": "ModIcon-badge.png", "corner": "bottom-left", "width": 220, "outline": false, "veil": "radial", "veilSize": 275, "veilLeft": -55, "veilBottom": -61 }
 }

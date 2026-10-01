@@ -7,8 +7,8 @@ def rgb(h):return tuple(bytes.fromhex(h[1:]))
 def contrast(a,b):
  a,b=sorted([lum(a),lum(b)]);return (b+.05)/(a+.05)
 for k,e in q['elements'].items():
- b=e['bounds']
- if b['width']<=0 or b['height']<=0:continue  # empty suffix/tag (no text): nothing rendered, nothing to check
+ b=e.get('bounds')
+ if not b or b['width']<=0 or b['height']<=0:continue  # empty suffix/tag: nothing rendered, nothing to check
  box=(math.floor(b['x']),math.floor(b['y']),math.ceil(b['x']+b['width']),math.ceil(b['y']+b['height']))
  assert box[0]>=0 and box[1]>=0 and box[2]<=896 and box[3]<=504
  if k=='.version':r=contrast(rgb(p['badgeInk']),rgb(p['accent']))
