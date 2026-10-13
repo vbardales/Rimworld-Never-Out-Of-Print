@@ -56,7 +56,7 @@ Kept at the root, never inside `Mod/`, so Steam never receives it.
 
 ## Where it stands
 
-`stage`The repository is detached and public;  is in the front matter (AUDIT.md section 16 audit of 2026-10-13 moved it back to makeSources, then forward). Every offline check that does not require a running
+The repository is detached and public; `workflow_stage` is in the front matter (AUDIT.md section 16 audit of 2026-10-13 moved it back to makeSources, then forward). Every offline check that does not require a running
 game or the mod owner's own act has been run and is green: `dotnet build` (0 errors, 0 warnings),
 `Check-XmlFields.ps1` (12 files, no unknown fields), `Check-XmlClasses.ps1` (29 types, all
 resolved), `Check-DefRefs.ps1` (against Core/DLC and Vanilla Books Expanded's own defs via
@@ -106,9 +106,9 @@ See `docs/PROTOCOLS-READ.md`.
 
 ## Settings audit
 
-Date 2026-10-14, revision after d61cbfa (settings[1.0.0] entry), RimWorld 1.6, .
+Date 2026-10-14, revision after d61cbfa (settings[1.0.0] entry), RimWorld 1.6, `settings_audit: not_applicable`.
 
-- **Inventory.** No settings class ( is a static class applying Harmony patches, it does not derive from ), no , no  in . Configurable behaviour: the copy cost (100 cloth), the copy value ratio (a tenth), the press speeds and costs. All live in the defs or as one constant, and other mods can already retune them by XML patch. No concrete player need found that a toggle would answer; an option added to fill a page is what MOD_SETTINGS.md forbids.
-- **Gendered French choice.** Not owed: the French strings agree with a pawn through  switches, and the audit found no case needing a persisted player choice (TRANSLATIONS.md, "Player choice for gendered French").
-- **Absence of page and shortcut.** Checked in the sources (no  subclass, no , no ) and by  ("no MainButtonDef in the distributed XML", "no settings class or settings window in the source"), 93 checks green on 2026-10-14. The in-game confirmation (Mod options list has no entry for this mod, no hidden MainButton) is replayed at playTests.
+- **Inventory.** No settings class (`NeverOutOfPrintMod` is a static class applying Harmony patches, it does not derive from `Verse.Mod`), no `ModSettings`, no `MainButtonDef` in `Mod/Defs/`. Configurable behaviour: the copy cost (100 cloth), the copy value ratio (a tenth), the press speeds and costs. All live in the defs or as one constant, and other mods can already retune them by XML patch. No concrete player need found that a toggle would answer; an option added to fill a page is what MOD_SETTINGS.md forbids.
+- **Gendered French choice.** Not owed: the French strings agree with a pawn through `{PAWN_gender ? ...}` switches, and the audit found no case needing a persisted player choice (TRANSLATIONS.md, "Player choice for gendered French").
+- **Absence of page and shortcut.** Checked in the sources (no `Mod` subclass, no `DoSettingsWindowContents`, no `MainButtonDef`) and by `Tests/test_resources.py` ("no MainButtonDef in the distributed XML", "no settings class or settings window in the source"), 93 checks green on 2026-10-14. The in-game confirmation (Mod options list has no entry for this mod, no hidden MainButton) is replayed at playTests.
 - **Integrations.** RIMMSQOL not applicable: no shortcut exists to reveal.
