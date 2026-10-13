@@ -8,7 +8,7 @@
       own code. This has to live in a Directory.Build.props: NuGet restore reads the property
       before the csproj.
     -->
-    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\.build\obj\NeverOutOfPrint\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\build\obj\NeverOutOfPrint\</BaseIntermediateOutputPath>
   </PropertyGroup>
 
 </Project>

@@ -1,0 +1,57 @@
+{
+  "title": "Never Out of Print",
+  "titleSize": 46,
+  "titleParts": [
+    { "text": "Never " },
+    { "text": "Out ", "scale": 0.9 },
+    { "text": "of", "scale": 0.62 },
+    { "break": true },
+    { "text": "Print" }
+  ],
+  "suffix": "",
+  "tag": "",
+  "tagInline": true,
+  "copyLines": [
+    "Copy the books you own,",
+    "and print the ones that argue."
+  ],
+  "layout": "panel",
+  "panelAnchor": "top-left",
+  "backgroundFile": "Preview-source.png",
+  "backgroundPosition": "center",
+  "backgroundSize": "cover",
+  "echo": {
+    "file": "echo.png",
+    "preSized": true,
+    "mode": "alpha",
+    "color": "var(--accent)",
+    "width": 220,
+    "height": 212,
+    "opacity": 1,
+    "veil": false,
+    "panelTop": 30,
+    "panelRight": 1,
+    "panelWidth": 38,
+    "flipX": true
+  },
+  "iconBadge": {
+    "file": "ModIcon-source.png",
+    "corner": "bottom-left",
+    "width": 180,
+    "translate": "12%, -12%",
+    "rotate": 15,
+    "radius": 48,
+    "outline": false,
+    "veil": "radial",
+    "veilSize": 250,
+    "veilLeft": -45,
+    "veilBottom": -45
+  },
+  "palette": {
+    "veil": "#2A2622",
+    "inkPrimary": "#F2ECE1",
+    "inkSecondary": "#D9A857",
+    "accent": "#B5451F",
+    "badgeInk": "#F2ECE1"
+  }
+}

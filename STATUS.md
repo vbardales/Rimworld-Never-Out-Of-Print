@@ -37,6 +37,7 @@ remaining:
   - unverified: GitHub social-preview image not set (PUBLISHING.md, "Topics et image de partage GitHub") — no API/gh path exists for it, only the repo Settings page through a browser; topics (rimworld, rimworld-mod, mod) were set by gh. Set the image once ready, via Claude in Chrome or by hand.
 session:      local_6cf3cb3c-08c2-4179-84cc-d5e727e5fe98
 updated:      2026-09-30, offline test harness written (93 checks) and the 2026-09-30 French gender-agreement review pass completed (see `remaining`); 2026-09-29 reconstructed from scratch after the 2026-09-06 build was deleted (duplicate coverage by living mods, see BACKLOG.md history in the mod's memory file); namespace/assembly/defName prefix changed from the deleted build's `PrintingPress` to `NeverOutOfPrint` specifically to avoid colliding with Zaljerem's living `zal.printingpress` mod at def-load (two assemblies exporting the same full type name). Session title corrected 2026-09-29: first set to `neveroutofprint / port`, wrong per AUDIT.md — the title uses `workflow_stage`, not `stage` (`stage` has only six codes and would have dropped the finer `horsMonoRepo` state); renamed to `neveroutofprint / horsMonoRepo`, then to `neveroutofprint / l10n` as workflow_stage advanced.
+protocols_read_sha: 92cd25e11ff11424d3d28b4170ea845fa4f2e227
 ---
 
 # Never Out of Print - status
