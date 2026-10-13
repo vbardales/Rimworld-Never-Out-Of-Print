@@ -28,7 +28,7 @@ Left `unverified` in STATUS.md rather than guessed at.
 
 Pickle's built-in `I add bill`/`I wait for bill to finish` pair does not fit this mod's own
 recipe: `I wait for bill` polls the *declared* product def's count, which for
-`NeverOutOfPrint_CopyBook` is `NeverOutOfPrint_CopiedBookPlaceholder` — a def that is never
+`NeverOutOfPrint_CopyBook` is `NeverOutOfPrint_CopiedBookPlaceholder`, a def that is never
 actually spawned (`RecipeWorkers.cs`'s Harmony patch swaps the real output in before the
 placeholder exists, exactly like `specialProducts` does, which the built-in step already refuses
 to wait on for the same reason). `02-copying.feature` waits a fixed tick budget instead and counts
@@ -39,8 +39,8 @@ Two more custom steps read per-Thing-instance state no built-in step reaches: th
 `MarketValue` stat (the built-in def-level stat steps read a `StatDef`'s XML value or its
 game-computed default *without stuff*, not a specific spawned Thing's post-`StatPart` value).
 
-`03-ideoligion.feature`'s steps call `BookOutcomeDoer_Ideoligion.OnReadingTick` directly — the same
-method `RimWorld.JobDriver_Reading` ticks during a real read — rather than orchestrating a full
+`03-ideoligion.feature`'s steps call `BookOutcomeDoer_Ideoligion.OnReadingTick` directly, the same
+method `RimWorld.JobDriver_Reading` ticks during a real read, rather than orchestrating a full
 in-game reading session through a `JobDriver`, for which Pickle has no built-in step and 400 ticks
 of simulated real reading would cost meaningfully more real time for the same proof. Setting the
 rival-faith scenario's target `Ideo` goes through the `ideoligion` private field via reflection,
@@ -56,7 +56,7 @@ needed yet: this mod declares no hard `modDependencies` and no settings (`settin
 not_applicable`).
 
 At minimum, per AUDIT.md: one pass without optional mods (Core + Ideology DLC + Harmony +
-RimLogging + Pickle + this mod — Ideology is required for `03-ideoligion.feature`, tagged
+RimLogging + Pickle + this mod, Ideology is required for `03-ideoligion.feature`, tagged
 `@requires:Ludeon.RimWorld.Ideology`), one pass with Vanilla Books Expanded present (this mod's
 only `loadAfter`). Neither has run yet.
 

@@ -27,7 +27,7 @@ Registry: `WORKSHOP_COMMENTS.md` at the monorepo root, keyed by the recipient's 
 by this mod. Checked 2026-09-29: neither recipient id below has a row in the registry yet
 (`grep` for `2894816192` and `2193152410` returns nothing). Drafts are written and rows added
 only once this mod is actually visible to its readers (WORKSHOP_COMMENTS.md, "Post only once the
-item is visible"), which it is not yet — nothing has been envoi'd. To prepare then:
+item is visible"), which it is not yet, nothing has been envoi'd. To prepare then:
 
 | Recipient | Workshop id | Why |
 |---|---|---|
@@ -35,13 +35,13 @@ item is visible"), which it is not yet — nothing has been envoi'd. To prepare 
 | Vanilla Books Expanded (Oskar Potocki) | 2193152410 | owns the 1.6 book system this mod builds on; `loadAfter` compat |
 
 Not owed a comment: Zaljerem's *Printing Press* and the three ideoligion-book mods found during
-the duplicate check (Alpha Books, Enhanced Beliefs, PropagandaAndManifestos) — nothing of theirs
+the duplicate check (Alpha Books, Enhanced Beliefs, PropagandaAndManifestos), nothing of theirs
 was read, studied or reused; see ATTRIBUTION.md, "Why this is a rebuild and not a port of
 Zaljerem's Printing Press".
 
 ## Dependencies and DLC
 
-- `modDependencies`: none. Nothing is required to load.
+- `modDependencies`: `brrainz.harmony` (Harmony, Workshop 2009463077): the three patches in `Source/HarmonyPatches.cs` need it at runtime, and its DLL is not redistributed.
 - `loadAfter`: `Ludeon.RimWorld.Ideology`, `Ludeon.RimWorld.Odyssey` (both optional content this
   mod's defs are gated on with `MayRequire`), `VanillaExpanded.VBooksE` (optional compat, see
   `Mod/Patches/VanillaBooksExpanded.xml`).

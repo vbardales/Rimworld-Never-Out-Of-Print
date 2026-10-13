@@ -27,11 +27,11 @@ The book is not consumed. It goes back on the shelf when the job is done.
 ### What a copy is
 
 **A copy teaches exactly what the original teaches.** Skill rates, research subjects, joy factor,
-mental-break chance, quality — all carried across verbatim.
+mental-break chance, quality, all carried across verbatim.
 
 That is a decision, not an accident. A book's benefits are rolled once, when it is generated, and
 stored on the instance; making a fresh book of the same def and calling it a copy would re-roll
-them, and re-rolling turns the press into a slot machine — print schematics until one of them
+them, and re-rolling turns the press into a slot machine, print schematics until one of them
 happens to advance the project you wanted.
 
 **With one exception: a one-off discovery does not survive copying.** Some books hold a quest, and
@@ -39,7 +39,7 @@ an Odyssey map holds one every time. A copy of a map is a map of the same place,
 treasure at the end of it. The blurb on the copy stops promising one.
 
 Copies are marked as copies: a tenth of the original's market value, a line in the inspect pane and
-in the stats report, and two new stockpile filters — *allow copied books*, *allow original books* —
+in the stats report, and two new stockpile filters, *allow copied books*, *allow original books* -
 so a trade beacon can sell the printed ones and keep what the colony actually found.
 
 This works on every book on the base game's book system: textbooks, schematics, novels, Anomaly's
@@ -50,7 +50,7 @@ whatever is in them.
 
 A book that argues for one ideoligion and is persuasive while it is being read. A believer reading
 their own faith's book comes away steadier. Anyone else loses certainty, and a reader who runs out
-converts — through the game's own conversion path, the one the conversion ritual uses, with the
+converts, through the game's own conversion path, the one the conversion ritual uses, with the
 same history event and the same memory of the faith they left.
 
 Quality decides how hard it pushes, and an **awful one is negative**: a badly argued tract drives
@@ -71,12 +71,12 @@ allow every book but that one.
 ### Burning books
 
 The base game marks books `burnableByRecipe` and ships no recipe that burns one. This adds it,
-wherever burning drugs already is — the campfire, the crematorium.
+wherever burning drugs already is, the campfire, the crematorium.
 
 ## Why the code is new
 
 This is a rebuild of the copying and ideoligion halves of **Vanilla Books Expanded Expanded** by
-Ben Lubar and Efi, continued by Mlie — a 1.3/1.4 mod that no longer runs. Its defs, artwork and
+Ben Lubar and Efi, continued by Mlie, a 1.3/1.4 mod that no longer runs. Its defs, artwork and
 balance are reused under its MIT licence. None of its code is, because none of it could be:
 RimWorld 1.5 put books in the base game, Vanilla Books Expanded was rewritten on top of them, and
 every class the old addon hooked belonged to the version before that. Its nineteen classes were all
@@ -84,12 +84,12 @@ patches on classes that no longer exist.
 
 The gain is visible in the ideoligion half. In 1.3 it took a `Thing` subclass, a `JobDef`, a
 `JobDriver` and a `JoyGiver` to arrange for a colonist to sit down with a book at all. Since 1.5 the
-base game does that itself and ticks every `ReadingOutcomeDoer` on whatever is being read — so what
+base game does that itself and ticks every `ReadingOutcomeDoer` on whatever is being read, so what
 is left to write is one outcome class and what happens on the tick. The `Thing` subclass survives
 only to stamp the ideoligion's symbol on the cover.
 
 The consequence worth knowing: **this does not extend Vanilla Books Expanded and does not need it.**
-If you have it the two fit together — the presses hang off its printing research instead of adding
+If you have it the two fit together, the presses hang off its printing research instead of adding
 a second project under the same name, and its tables can write ideoligion books. If you do not,
 everything here still works on the base game's books.
 
@@ -112,7 +112,7 @@ Build: `cd Source && dotnet build`.
 ## Licence and credit
 
 MIT for this mod's own work; the reused portion carries the original MIT notice, quoted in full
-in [ATTRIBUTION.md](ATTRIBUTION.md) — see that file for what was reused, what was deliberately
+in [ATTRIBUTION.md](ATTRIBUTION.md), see that file for what was reused, what was deliberately
 left behind, and where the licence was checked.
 
 Thanks to Ben Lubar and Efi for the original, to Mlie for the continuation and the licence, and to

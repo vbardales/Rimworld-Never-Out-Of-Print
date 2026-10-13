@@ -1,4 +1,4 @@
-# Never Out of Print — attribution
+# Never Out of Print, attribution
 
 A 1.6 rebuild of the copying and ideoligion halves of **Vanilla Books Expanded Expanded**, by
 **Ben Lubar** and **Efi**, continued by **Mlie**. Original Workshop item
@@ -9,7 +9,7 @@ A 1.6 rebuild of the copying and ideoligion halves of **Vanilla Books Expanded E
 
 ## Status: public, and licensed
 
-The source is dead — `supportedVersions` stops at 1.4, the repository was archived, and the mod's
+The source is dead, `supportedVersions` stops at 1.4, the repository was archived, and the mod's
 own in-game update notice says in as many words: *this mod will not be further updated*. It
 carries a licence, so this is not the usual abandoned-and-silent case.
 
@@ -18,12 +18,12 @@ The check ran at four places:
 | Where | Result |
 |---|---|
 | `LICENSE.md` in the published mod | **MIT License, Copyright (c) 2020 Mlie** |
-| `About.xml` description | one carve-out, on artwork — see below |
+| `About.xml` description | one carve-out, on artwork, see below |
 | Body of the Steam page (both items) | identical text; no licence, no prohibition |
 | The linked repository | **MIT**, archived |
 
-Searched for a refusal as well as for a permission — `prohibit`, `forbid`, `do not`,
-`redistribut`, `no redistribution` — because a refusal never presents itself as a licence. There
+Searched for a refusal as well as for a permission, `prohibit`, `forbid`, `do not`,
+`redistribut`, `no redistribution`, because a refusal never presents itself as a licence. There
 is none on either page.
 
 ### The one carve-out, and what it excluded
@@ -34,7 +34,7 @@ Under *Legal Stuff*, both Steam pages say:
 > creator of Vanilla Books Expanded, and used with express permission in this mod.
 
 Express permission granted to **that** mod is not a licence to anyone else, and it does not travel
-with the MIT notice. So those two sprites are not here — nothing in this mod retextures anything
+with the MIT notice. So those two sprites are not here, nothing in this mod retextures anything
 of Oskar Potocki's.
 
 ### Original notice, quoted in full (MIT requires it to accompany the reused portion)
@@ -119,6 +119,6 @@ Thanks to Ben Lubar and Efi for the original mod and for the design this rebuild
 for keeping it running for two more versions and for licensing it, and to Erazil for the
 ideoligion book artwork.
 
-This mod's own work — the C#, the rewritten rule packs, the translations — is MIT; see `LICENSE`.
+This mod's own work, the C#, the rewritten rule packs, the translations, is MIT; see `LICENSE`.
 
 If the authors would rather this were not published, it comes down on request.

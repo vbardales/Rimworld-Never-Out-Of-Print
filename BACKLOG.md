@@ -123,7 +123,7 @@ request vers lui est systématique*. The origin here is
 (MIT), whose defs, textures and balance this mod reuses.
 
 **Blocked, not skipped.** The repository is archived (confirmed via `gh repo view`,
-`isArchived: true`). GitHub refuses pull requests against an archived repository outright — there
+`isArchived: true`). GitHub refuses pull requests against an archived repository outright, there
 is no fork-and-PR path while it stays archived. Nothing to propose until Mlie (or GitHub) unarchive
 it. Recheck on a schedule, or if the repository's state ever changes; do not silently drop the
 item.
@@ -131,5 +131,5 @@ item.
 There is also, practically, nothing to send: every class this mod's C# hooks belongs to the 1.6
 book API, and every class the archived repository's own C# hooks was deleted from the game in
 1.5. A PR proposing "make this work in 1.6" would not be a patch to the existing code, it would be
-this mod's own rewrite — which is not something to hand to an archived, unmaintained repository
+this mod's own rewrite, which is not something to hand to an archived, unmaintained repository
 as a pull request.

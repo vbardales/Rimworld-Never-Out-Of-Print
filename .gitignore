@@ -22,3 +22,5 @@ desktop.ini
 .DS_Store
 
 Art/.render/
+
+*.dds
