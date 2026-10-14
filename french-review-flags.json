@@ -1,5 +1,5 @@
 {
-  "NeverOutOfPrint_BookUnsettles": "Neutral third segment `lu lectaire`: -eur/-euse -> -aire, same pattern as `lu portaire` (porteur/porteuse) already used by another mod of this project; session reading of the al system, to confirm.",
+  "NeverOutOfPrint_BookUnsettles": "Neutral third segment `lu lectaire`: -eur/-euse -> -aire, same pattern as `lu portaire` (porteur/porteuse) already used by another mod of this project; `lectaire` is the attested neutral of lecteur/lectrice (fr.wiktionary.org/wiki/lectaire, Alpheratz model), `lu` the al neutral article.",
   "NeverOutOfPrint_NamelessBeliever": "Fallback when the game supplies no ideoligion (no pawn, no gender): epicene invariable noun `fidèle` instead of the former point-median form.",
   "NeverOutOfPrint_NamelessBelievers": "Epicene `fidèles`, same reason.",
   "NeverOutOfPrint_Namer_IdeoligionBook.rulePack.rulesStrings": "Two titles reworded to the plural (`Réponse des ...`, `Lettres aux jeunes ...`) so no gendered article or point-median mark is needed: the grammar resolver cannot know the gender of a generated member name.",
