@@ -51,14 +51,15 @@ hold the rival faith it would need to author that book.
 
 Never launch the game yourself: file requests with
 `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1` (one request per pass, the mod's SHA in
-the label, the tree frozen on that revision until `RUN_DONE`). No `wsl-deps.map`/config seed is
-needed yet: this mod declares no hard `modDependencies` and no settings (`settings_audit:
-not_applicable`).
+the label, the tree frozen on that revision until `RUN_DONE`). Harmony is the only hard dependency and is staged by default with Core, the DLC and Pickle, so
+the pass without optional mods needs no map. Mod settings: none (`settings_audit: not_applicable`).
 
-At minimum, per AUDIT.md: one pass without optional mods (Core + Ideology DLC + Harmony +
-RimLogging + Pickle + this mod, Ideology is required for `03-ideoligion.feature`, tagged
-`@requires:Ludeon.RimWorld.Ideology`), one pass with Vanilla Books Expanded present (this mod's
-only `loadAfter`). Neither has run yet.
+Passes, per AUDIT.md: (1) without optional mods (Core + Ideology DLC + Harmony + RimLogging + Pickle +
+this mod; Ideology is required for `03-ideoligion.feature`, tagged `@requires:Ludeon.RimWorld.Ideology`,
+a DLC the default staging mounts); (2) with the optional `loadAfter` mod present: Vanilla Books
+Expanded (`VanillaExpanded.VBooksE`, Workshop 2193152410), mounted by a planned `wsl-deps.vbe.map`
+naming that item (not written yet, so listed here as owed; the Odyssey DLC is not exercised by any
+scenario). Neither pass has run.
 
 ## Evidence to keep
 

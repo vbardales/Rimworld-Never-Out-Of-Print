@@ -1,14 +1,14 @@
 ---
 localization:   complete
 translation_en: complete
-translation_fr: partial
+translation_fr: complete
 settings_audit: not_applicable
 mod:          Never Out of Print
 packageId:    nelim.neveroutofprint
 repo:         Rimworld-Never-Out-Of-Print
 visibility:   public
 detached:     yes
-workflow_stage: writeTests[1.0.0]
+workflow_stage: playTests[1.0.0]
 licence:      open
 licence_at:   MIT (Vanilla Books Expanded Expanded, Ben Lubar and Efi, continued by Mlie); own C#, rule packs and translations also MIT
 upstream_mod_remotes:
@@ -28,7 +28,7 @@ remaining:
   - resolved 2026-10-13: <author> now follows the format; THANKS names Harmony, Vanilla Books Expanded, Pickle and PickleTools (development only); Workshop links on the mod names; em dashes removed from the repository docs; *.dds in .gitignore; CHANGELOG [0.1.0] added (PublishedFileId.txt dated 2026-10-01; no git tag exists); TEST_SCENARIOS.md written.
   - defect: PUBLICATION.md has not migrated to the single-source Steam description block (no .github/ sync-about-description.mjs yet); About.xml stays the hand-written source.
   - unverified: Check-XmlClasses.ps1 not run (needs TypeLists); MOD_SETTINGS.md not re-read this pass (settings_audit not_applicable rests on the 2026-09-29 source inspection).
-  - unverified: French review by Virginie of the 2026-10-14 changes (lu lectaire, fidèle/fidèles, the plural rewordings); see french-review-flags.json.
+  - resolved 2026-10-14 (writeTests, 7.a-7.i): TEST_SCENARIOS.md written; test_resources.py 93 checks, Check-XmlFields (12 files), Check-DefRefs, Check-DefInjected (33 keys, 0 errors), Check-ModBasics and Check-Translations replayed this day on HEAD 3c7ac8d (code unchanged since); Pickle suites written and compiled, not run; the map for the Vanilla Books Expanded pass (wsl-deps.vbe.map) is owed. French review validated (see Translation audit). Advanced to playTests[1.0.0].
   - open: echo_review_sha (mountPreview) and social_preview_sha256 (10.f) not set; no gallery beyond 0-.
   - resolved 2026-09-29: ModIcon.png delivered by the owner (1254x1254; unrelated to the unexplained stray already at Art/ModIcon-stray-1254.png). Full-resolution delivered file kept untouched at Art/Icons/ModIcon-source.png; resize to 128x128/20.6 KB done by this session with the owner's explicit per-file accord ("oui, vas-y"). Art/ModIcon.ico is 16/32/48/256, RGBA PNG-encoded (ffmpeg recipe in STYLE_RIMWORLD.md). Root desktop.ini wired (IconResource=Art\ModIcon.ico,0), root folder ReadOnly, its desktop.ini Hidden+System.
   - note: the delivered icon is a generic winking-sun emoji, not a mod-specific mascot holding an accompanying object (book/press). Legible at 32px, so not a blocking defect per STYLE_RIMWORLD.md's own rule, flagged for the owner rather than silently accepted or replaced.
@@ -113,3 +113,9 @@ Date 2026-10-14, revision after d61cbfa (settings[1.0.0] entry), RimWorld 1.6, `
 - **Gendered French choice.** Not owed: the French strings agree with a pawn through `{PAWN_gender ? ...}` switches, and the audit found no case needing a persisted player choice (TRANSLATIONS.md, "Player choice for gendered French").
 - **Absence of page and shortcut.** Checked in the sources (no `Mod` subclass, no `DoSettingsWindowContents`, no `MainButtonDef`) and by `Tests/test_resources.py` ("no MainButtonDef in the distributed XML", "no settings class or settings window in the source"), 93 checks green on 2026-10-14. The in-game confirmation (Mod options list has no entry for this mod, no hidden MainButton) is replayed at playTests.
 - **Integrations.** RIMMSQOL not applicable: no shortcut exists to reveal.
+
+## Translation audit
+
+French lives in `Mod/Languages/French/Keyed/NeverOutOfPrint.xml`, `Mod/Languages/French/DefInjected/` (RecipeDef, ResearchProjectDef, SpecialThingFilterDef, ThingDef, WorkGiverDef) and `Mod/Ideology/Languages/French/DefInjected/` (RulePackDef, SpecialThingFilterDef, ThingCategoryDef, ThingDef, gated on Ideology). Doubts are in `french-review-flags.json`.
+
+- 2026-10-14, revision 39605bf, reviewer Virginie: reviewed and validated in the chat ("Validé !"), covering `lu lectaire`, `fidèle`/`fidèles` and the plural rewordings; no correction requested. `translation_fr` set to `complete` on her word. Any later change to a French or English text resets it to `unchecked`.
