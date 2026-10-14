@@ -1,7 +1,7 @@
 ---
 localization:   complete
 translation_en: complete
-translation_fr: complete
+translation_fr: partial
 settings_audit: not_applicable
 mod:          Never Out of Print
 packageId:    nelim.neveroutofprint
@@ -18,6 +18,7 @@ showcase:     blocked
 tested_on:
 workshop:
 remaining:
+  - defect 2026-10-14 (localize, 6.d): TRANSLATIONS.md rule of 2026-10-08 (al system) postdates the 2026-09-30 French review, so the earlier complete is void. Mod/Languages/French/Keyed/NeverOutOfPrint.xml line 10, NeverOutOfPrint_BookUnsettles: the pawn is known, the third segment must be a real al neutral form, but it reads la personne qui lit (epicene paraphrase, which the rule forbids when gender is available). Lines 14-15, NeverOutOfPrint_NamelessBeliever and NamelessBelievers: no pawn exists (book generation), the rule asks for a genuinely epicene rewrite, but croyant·e and croyant·e·s are point-median marks. Not fixed: the exact al noun forms (lecteur, croyant) are not in the protocol and not guessed. translation_fr reset to partial; Virginie to decide the wording and re-read FRENCH_REVIEW.md. Blocks leaving localize (6.d).
   - resolved 2026-10-14: settings[1.0.0] complete at its two-step gate (AUDIT.md 5.a-5.g): settings_audit not_applicable justified in the Settings audit section below. unverified: in-game confirmation that no options entry or shortcut shows (playTests). Advanced to localize[1.0.0].
   - resolved 2026-10-14: declareDependencies[1.0.0] complete (AUDIT.md 4.a-4.g), revision 1184446. Hard: brrainz.harmony (Harmony patches in Source/HarmonyPatches.cs, DLL not redistributed). Optional, none hard: Ludeon.RimWorld.Ideology (MayRequire on 4 defs plus the gated Ideology/ LoadFolders entry; C# guarded by ModsConfig.IdeologyActive), Ludeon.RimWorld.Odyssey (loadAfter only, no code reference; the map exception in BookCopyUtility uses the base-game BookOutcomeDoer_GiveQuest), VanillaExpanded.VBooksE (loadAfter plus Mod/Patches/VanillaBooksExpanded.xml, every operation wrapped in PatchOperationConditional on a def that exists only with it). supportedVersions 1.6 only. No cycle (loadAfter only points at base game, DLC, Harmony, VBE). No incompatibleWith (none found, BACKLOG.md). No animal, so ANIMALS.md n/a. Advanced to settings[1.0.0].
   - resolved 2026-10-14: code[1.0.0] complete (AUDIT.md 3.a-3.c). Build 0 errors 0 warnings, Mod/Assemblies/NeverOutOfPrint.dll byte-identical to the fresh build (git shows no diff), CHANGELOG [Unreleased] states the version. The only open feature entry (PR to the archived origin) is blocked upstream and is not something the version delivers. Advanced to declareDependencies[1.0.0].
