@@ -1,0 +1,7 @@
+{
+  "NeverOutOfPrint_BookUnsettles": "Neutral third segment `lu lecteurx`: session's reading of the al system (article `lu`, noun ending -x). Not an attested occurrence of `lecteur`; to confirm.",
+  "NeverOutOfPrint_NamelessBeliever": "Fallback when the game supplies no ideoligion (no pawn, no gender): epicene invariable noun `fidèle` instead of the former point-median form.",
+  "NeverOutOfPrint_NamelessBelievers": "Epicene `fidèles`, same reason.",
+  "NeverOutOfPrint_Namer_IdeoligionBook.rulePack.rulesStrings": "Two titles reworded to the plural (`Réponse des ...`, `Lettres aux jeunes ...`) so no gendered article or point-median mark is needed: the grammar resolver cannot know the gender of a generated member name.",
+  "NeverOutOfPrint_Description_IdeoligionBook.rulePack.rulesStrings": "Argument line reworded to the plural (`entre des ... et des sceptiques, où les sceptiques ont le dessous`), same reason."
+}
