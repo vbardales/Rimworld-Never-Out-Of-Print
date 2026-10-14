@@ -1,14 +1,14 @@
 # Publication
 
 What the Workshop page needs that lives nowhere else in this repository. Written before the
-first envoi; the running `docs/runs/` notes trim what is already sent (AUDIT.md, "avant la mise
+first upload; the running `docs/runs/` notes trim what is already sent (AUDIT.md, "avant la mise
 en veille du mod").
 
 ## Steam description
 
 Not yet migrated to the `PUBLICATION.md` single-source form (PUBLISHING.md, "Source unique de la
 description", 2026-09-25 decision): `Mod/About/About.xml`'s `<description>` is written by hand
-and is the authoritative source for now. Copy it here verbatim before the first envoi if this mod
+and is the authoritative source for now. Copy it here verbatim before the first upload if this mod
 later adopts the CI's `sync-about-description.mjs` pipeline.
 
 ## Screenshot order
@@ -27,7 +27,7 @@ Registry: `WORKSHOP_COMMENTS.md` at the monorepo root, keyed by the recipient's 
 by this mod. Checked 2026-09-29: neither recipient id below has a row in the registry yet
 (`grep` for `2894816192` and `2193152410` returns nothing). Drafts are written and rows added
 only once this mod is actually visible to its readers (WORKSHOP_COMMENTS.md, "Post only once the
-item is visible"), which it is not yet, nothing has been envoi'd. To prepare then:
+item is visible"), which it is not yet, nothing has been uploaded. To prepare then:
 
 | Recipient | Workshop id | Why |
 |---|---|---|
@@ -52,7 +52,7 @@ Not applicable. No such content.
 
 ## Version notes (Steam)
 
-Written at the moment of the first envoi.
+Write this when making the first upload.
 
 ## Rollback target
 
