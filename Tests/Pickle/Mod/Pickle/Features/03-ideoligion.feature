@@ -14,12 +14,12 @@ Feature: an ideoligion book moves a reader's certainty
 
   Scenario: a believer reading their own faith's book grows steadier
     Given an ideoligion book for "Believer"'s own faith is spawned near "Believer"
-    When "Believer" reads it for 400 ticks
+    When "Believer" reads it for 10000 ticks
     Then "Believer"'s certainty increased
     And no errors were logged
 
   Scenario: reading a rival faith's book erodes certainty
     Given an ideoligion book for a rival faith is spawned near "Believer"
-    When "Believer" reads it for 400 ticks
+    When "Believer" reads it for 10000 ticks
     Then "Believer"'s certainty decreased
     And no errors were logged

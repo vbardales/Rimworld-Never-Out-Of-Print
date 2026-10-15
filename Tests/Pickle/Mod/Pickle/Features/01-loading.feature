@@ -17,4 +17,4 @@ Feature: Never Out of Print loads with its defs wired
 
   Scenario: the copy patch reached the book comp and the market value stat
     Then def "Novel" was patched
-    And def "MarketValueBase" was patched by mod "nelim.neveroutofprint"
+    And the MarketValue stat carries the copied-book part

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using RimWorld;
 using RimWorks.Pickle;
 using Verse;
@@ -60,6 +61,31 @@ namespace NeverOutOfPrint.PickleSteps
             var comp = things[0].TryGetComp<CompCopiedBook>();
             ctx.Require(comp != null, $"newest '{defName}' (id {things[0].thingIDNumber}) has no CompCopiedBook");
             ctx.Require(comp.Copied, $"newest '{defName}' (id {things[0].thingIDNumber}) is not marked as a copy");
+        }
+
+        /// <summary>
+        /// Pickle's own "I wait N ticks" is bound by a five second step limit and played only 3420 of
+        /// 12500 ticks in the first run; the press needs the whole budget. Slices keep the game
+        /// advancing the way WaitTicks does.
+        /// </summary>
+        [When("Never Out of Print: {int} ticks pass", TimeoutSeconds = 120f)]
+        public async Task TicksPass(PickleContext ctx, int ticks)
+        {
+            int left = ticks;
+            while (left > 0)
+            {
+                int slice = left > 500 ? 500 : left;
+                await ctx.WaitTicks(slice);
+                left -= slice;
+            }
+        }
+
+        [Then("the MarketValue stat carries the copied-book part")]
+        public void MarketValueHasPart(PickleContext ctx)
+        {
+            ctx.Require(StatDefOf.MarketValue.parts != null
+                        && StatDefOf.MarketValue.parts.Any(p => p is StatPart_CopiedBook),
+                "StatDefOf.MarketValue has no StatPart_CopiedBook: the CopiedBooks.xml patch did not reach it");
         }
 
         [Then("the newest {string} on the map is worth about a tenth of the oldest one to a trader")]

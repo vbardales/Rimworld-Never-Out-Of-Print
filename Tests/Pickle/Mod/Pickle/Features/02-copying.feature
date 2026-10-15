@@ -17,7 +17,7 @@ Feature: a printing press copies a book
     And 1 "Novel" is spawned at the stockpile
     And 100 "Cloth" is spawned at the stockpile
     When I add bill "NeverOutOfPrint_CopyBook" to the "NeverOutOfPrint_Manual"
-    And I wait 12500 ticks
+    And Never Out of Print: 12500 ticks pass
     Then 2 "Novel" exist
     And the newest "Novel" on the map is marked as a printed copy
     And the newest "Novel" on the map is worth about a tenth of the oldest one to a trader
