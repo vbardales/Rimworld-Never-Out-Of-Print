@@ -77,6 +77,10 @@ namespace NeverOutOfPrint.PickleSteps
                 int slice = left > 500 ? 500 : left;
                 await ctx.WaitTicks(slice);
                 left -= slice;
+                var worker = Find.CurrentMap?.mapPawns.FreeColonistsSpawned.FirstOrDefault();
+                Log.Message("[NOOP-DIAG] ticks left " + left + ", game tick " + Find.TickManager.TicksGame +
+                            ", job " + (worker?.CurJob?.def?.defName ?? "none") +
+                            ", books " + Find.CurrentMap?.listerThings.ThingsInGroup(ThingRequestGroup.Book).Count);
             }
         }
 
