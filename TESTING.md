@@ -1,5 +1,30 @@
 # Testing
 
+## Scenarios (7.a)
+
+One per behaviour promised in `PUBLICATION.md`. Features in `Tests/Pickle/Mod/Pickle/Features/` hold the steps; a row names the scenario and its feature. Figures checked against `Source/` and `Mod/Defs/`: two presses behind the printing research, copy cost 100 cloth, copy worth a tenth, electric press four times the manual one.
+
+| # | Behaviour | Scenario in feature |
+|---|---|---|
+| 1 | Two presses behind research | 01-loading: the presses, the recipe and the research project exist (costs and speed: owner) |
+| 2 | Copy book keeps the original | 02-copying: a copy survives the original, is marked, and is worth a tenth to a trader |
+| 3 | Copy carries what the original teaches | none yet (owner reads a skill book and a research book, original and copy) |
+| 4 | No second one-off discovery (Odyssey map) | none yet (needs Odyssey) |
+| 5 | Fewest-copies bill | none yet |
+| 6 | Copies are marked and cheap | 02-copying (same scenario as 2) |
+| 7 | Stockpile filters | none yet |
+| 8 | Works with other books (Vanilla Books Expanded) | none yet (needs the VBE pass) |
+| 9 | Ideoligion book, own faith | 03-ideoligion: a believer reading their own faith's book grows steadier |
+| 10 | Ideoligion book, rival faith | 03-ideoligion: reading a rival faith's book erodes certainty |
+| 11 | Awful quality inverts | not converted, see Pickle suites below |
+| 12 | Colonists do not seek a rival book | none yet |
+| 13 | Reading policy effect | none yet |
+| 14 | Burn books | none yet |
+| 15 | Loads without errors, FR and EN | 01-loading: the mod loads without startup errors, the copy patch reached the book comp and the market value stat |
+
+7.b proof: the Python harness `Tests/test_resources.py`, run with the command below, 93 checks (no C# unit-test project exists, `Run-UnitTests.ps1` reports n/a).
+
+
 ## Offline (writeTests)
 
 Written 2026-09-29, `Tests/test_resources.py`, model ManureComposting's own `Tests/test_resources.py`.
