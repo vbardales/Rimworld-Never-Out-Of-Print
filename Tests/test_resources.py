@@ -1,8 +1,8 @@
-"""Offline packaging, wiring and localization checks. Reads only; touches nothing.
-Model: ManureComposting/Tests/test_resources.py. Run: uv run --with pillow python Tests/test_resources.py
-(pillow is unused here but keeps the invocation identical across mods that do need it)."""
+"""Offline wiring checks of this mod's own content: the IDEO_ grammar symbols, the copy recipe and its two presses, the printing research, the ideoligion book,
+the stockpile filter workers and the one DLL. Reads only; touches nothing. Run: uv run python Tests/test_resources.py
+XML parse, About, images, LICENSE, Keyed EN/FR parity and the settings audit are Check-ModBasics, Check-Translations and Check-SettingsContract."""
 from pathlib import Path
-import re, struct, xml.etree.ElementTree as ET
+import re, xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 checks = 0
 
@@ -14,18 +14,6 @@ def check(ok, message):
     print("PASS", message)
 
 
-def resources(folder):
-    result = {}
-    for f in folder.rglob("*.xml"):
-        for e in ET.parse(f).getroot():
-            if not isinstance(e.tag, str):
-                continue
-            check(e.tag not in result, f"unique resource {e.tag}")
-            check(bool(e.text and e.text.strip()), f"nonempty {e.tag}")
-            result[e.tag] = e.text
-    return result
-
-
 def defs_by_tag(folder, tag):
     result = {}
     for f in folder.rglob("*.xml"):
@@ -34,26 +22,6 @@ def defs_by_tag(folder, tag):
                 result[d.findtext("defName")] = d
     return result
 
-
-for f in (ROOT / "Mod").rglob("*.xml"):
-    ET.parse(f)
-print("PASS all distributed XML parses")
-
-# --- Localization: EN/FR Keyed coverage and parameter parity, every source Translate() key
-# resolves in both languages. This mod carries no DefInjected translations (no def field is
-# translated; About.xml states EN/FR coverage as Keyed strings and IDEO_ grammar symbols only).
-en = resources(ROOT / "Mod/Languages/English/Keyed")
-fr = resources(ROOT / "Mod/Languages/French/Keyed")
-check(set(en) == set(fr), "Keyed languages have identical coverage")
-# A {PAWN_gender ? m : f : n} switch (TRANSLATIONS.md, "French gender agreement", 2026-09-30) is
-# a French-only addition with no English counterpart by design - strip it before the {0}/{1}
-# positional-parameter parity check, or a legitimate gender switch reads as a missing/extra param.
-gender_switch = re.compile(r"\{\w+_gender\s*\?[^{}]*\}")
-for key in en:
-    check(re.findall(r"\{[^{}]+\}", en[key]) == re.findall(r"\{[^{}]+\}", gender_switch.sub("", fr[key])), f"parameters match {key}")
-for f in (ROOT / "Source").glob("*.cs"):
-    for key in re.findall(r'"(NeverOutOfPrint_[^"]+)"\.Translate', f.read_text(encoding="utf-8-sig")):
-        check(key in en and key in fr, f"source key resolves {key}")
 
 # --- IDEO_ grammar symbols: BookOutcomeDoer_Ideoligion.GetTopicRuleStrings supplies these at
 # generation time (IDEO_name, IDEO_memberName, IDEO_memberNamePlural); the RulePackDefs must
@@ -106,25 +74,11 @@ source_text = "\n".join(f.read_text(encoding="utf-8-sig") for f in (ROOT / "Sour
 for worker_class in re.findall(r"<workerClass>NeverOutOfPrint\.(\w+)</workerClass>", filters_xml):
     check(re.search(rf"\bclass {worker_class}\b", source_text) is not None, f"filter worker class {worker_class} is defined in Source/")
 
-# --- Packaging: About.xml, ModIcon/Preview dimensions and weight, LICENSE/ATTRIBUTION shipped
-# both at repo root and inside Mod/ (PUBLISHING.md, "Fichier LICENSE ... et dans le dossier
-# publié"), no dependency DLL redistributed, no settings class or MainButtonDef (settings_audit:
-# not_applicable).
-about = ET.parse(ROOT / "Mod/About/About.xml").getroot()
-url = "https://github.com/vbardales/Rimworld-Never-Out-Of-Print"
-check(about.findtext("description").rstrip().endswith(f"[url={url}]Source code on GitHub[/url]"), "description ends with exact repository link")
-check(about.findtext("url") == url, "About url matches description")
-for filename, size in [("ModIcon.png", (128, 128)), ("Preview.png", (896, 504))]:
-    data = (ROOT / "Mod/About" / filename).read_bytes()
-    check(data[:8] == b"\x89PNG\r\n\x1a\n", f"{filename} PNG signature")
-    check(struct.unpack(">II", data[16:24]) == size, f"{filename} dimensions")
-    check(len(data) < 1000000, f"{filename} below 1 MB")
-for name in ["LICENSE", "ATTRIBUTION.md"]:
-    check((ROOT / name).read_bytes() == (ROOT / "Mod" / name).read_bytes(), f"distributed {name} matches")
 check([p.name for p in (ROOT / "Mod/Assemblies").glob("*.dll")] == ["NeverOutOfPrint.dll"], "no dependency DLL redistribution")
+
+# settings_audit: not_applicable (STATUS.md): the shared Check-SettingsContract cannot read that reasoning, so the absence stays asserted here.
 distributed_xml = "\n".join(f.read_text(encoding="utf-8-sig") for f in (ROOT / "Mod").rglob("*.xml"))
 check("MainButtonDef" not in distributed_xml, "no MainButtonDef in the distributed XML")
 check(not re.search(r"\bModSettings\b|:\s*Mod\b|DoSettingsWindowContents|SettingsCategory", source_text), "no settings class or settings window in the source")
-check(about.find("incompatibleWith") is None, "no incompatibility is declared, so no incompatibility pass is owed")
 
-print(f"{checks} offline packaging, wiring and localization checks passed; no in-game display claim.")
+print(f"{checks} offline wiring checks passed; no in-game display claim.")
