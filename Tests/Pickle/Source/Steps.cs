@@ -72,9 +72,11 @@ namespace NeverOutOfPrint.PickleSteps
         public async Task TicksPass(PickleContext ctx, int ticks)
         {
             int left = ticks;
+            Log.Message("[NOOP-DIAG] step start, ticks " + ticks + ", game tick " + Find.TickManager.TicksGame +
+                        ", paused " + Find.TickManager.Paused);
             while (left > 0)
             {
-                int slice = left > 500 ? 500 : left;
+                int slice = left > 100 ? 100 : left;
                 await ctx.WaitTicks(slice);
                 left -= slice;
                 var worker = Find.CurrentMap?.mapPawns.FreeColonistsSpawned.FirstOrDefault();
